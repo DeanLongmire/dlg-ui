@@ -1,0 +1,11 @@
+.custom-dropdown.dropdown-wrapper {
+    width: 50%;
+}
+
+.custom-dropdown .dropdown-select {
+    font-size: larger;
+}
+
+.custom-dropdown .dropdown-options {
+    font-size: larger;
+}
