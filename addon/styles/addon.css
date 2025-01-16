@@ -26,6 +26,11 @@
     background-color: #f6f6f6;
 }
 
+.dropdown-placeholder {
+    font-style: italic;
+    color: #444;
+}
+
 .dropdown-select {
     width: 100%;
     padding-left: 8px;
@@ -41,6 +46,7 @@
     border-style: solid;
     border-width: 2px;
     background-color: #eee;
+    user-select: none;
 }
 
 .dropdown-select::after {

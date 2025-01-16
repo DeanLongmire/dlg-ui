@@ -1,11 +1,11 @@
 .custom-dropdown.dropdown-wrapper {
-    width: 50%;
+    width: 40%;
 }
 
 .custom-dropdown .dropdown-select {
-    font-size: larger;
+    font-size: 1rem;
 }
 
 .custom-dropdown .dropdown-options {
-    font-size: larger;
+    font-size: 1rem;
 }

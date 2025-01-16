@@ -1,18 +1,20 @@
 <div class="dropdown-wrapper {{@class}}" {{did-insert this.loadClickListener}}>
     <div class="dropdown-select {{if this.isOpen 'open'}}">
-        Hello World!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        {{#if this.selectedOption}}
+            {{this.selectedOption}}
+        {{else}}
+            <span class="dropdown-placeholder">
+                {{this.placeholder}}
+            </span>
+        {{/if}}
     </div>
     {{#if this.isOpen}}
         <div class="dropdown-options">
-            <div class="dropdown-option">
-                Test!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            </div>
-            <div class="dropdown-option">
-                Test!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            </div>
-            <div class="dropdown-option">
-                Test!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            </div>
+            {{#each @options as |option|}}
+                <div class="dropdown-option" {{on "click" (fn this.makeSelection option)}}>
+                    {{option}}
+                </div>
+            {{/each}}
         </div>
     {{/if}}
 </div>
