@@ -11,4 +11,17 @@
     @selectedOption={{this.selectedOption}} --}}
 />
 
+<br>
+<br>
+<br>
+
+<HeaderDropdown 
+    @class="custom-dropdown" 
+    @options={{this.dropdownOptions}} 
+    @placeholder="Select an option...!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    @onSelect={{this.onSelect}}
+    @selectedOption={{this.selectedOption}}
+/>
+
+
 {{outlet}}

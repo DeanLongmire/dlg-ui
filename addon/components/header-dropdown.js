@@ -22,9 +22,9 @@ export default class DropdownComponent extends Component {
     if (!this.args.options) {
       throw new Error('Dropdown requires an options array');
     }
-    if (this.args.forceSelection && !this.args.selectedOption) {
+    if (!this.args.selectedOption) {
       throw new Error(
-        'Dropdown requires a selected option when forceSelection is true'
+        'Header dropdown requires a selected option'
       );
     }
   }
@@ -57,12 +57,22 @@ export default class DropdownComponent extends Component {
 
   @action
   makeSelection(option) {
-    if (!this.args.forceSelection && option === this.selectedOption) {
-      this.saveSelection(null);
+    if (option === this.selectedOption) {
       this.isOpen = false;
     } else {
       this.saveSelection(option);
       this.isOpen = false;
+    }
+  }
+
+  @action
+  setDropdownWidth() {
+    const targetElement = document.querySelector('.header-dropdown-select');
+    const dropdownOptions = document.querySelector('.header-dropdown-options');
+
+    if (targetElement && dropdownOptions) {
+      const targetWidth = targetElement.offsetWidth;
+      dropdownOptions.style.width = `${targetWidth}px`;
     }
   }
 }

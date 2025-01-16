@@ -3,11 +3,15 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class ApplicationController extends Controller {
-    @tracked selectedOption = 'Option 1';
-    dropdownOptions = ['Option 1', 'Option 2', 'Option 3'];
+  @tracked selectedOption = 'short option';
+  dropdownOptions = [
+    'A very very very long option that is long', 
+    'short option', 
+    'a medium size option'
+  ];
 
-    @action
-    onSelect(value) {
-        this.selectedOption = value;
-    }
+  @action
+  onSelect(value) {
+    this.selectedOption = value;
+  }
 }
