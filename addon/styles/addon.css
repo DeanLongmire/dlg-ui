@@ -149,13 +149,11 @@
 .navbar-dropdown .header-dropdown-options {
     position: absolute;
     min-width: 60px !important;
-    /* overflow-wrap: normal; */
 }
 
 .navbar-dropdown .header-dropdown-select {
     padding-top: 0px;
     border-bottom-style: none;
-    /* min-width: 100px; */
 }
 
 .navbar-dropdown .header-dropdown-select::after {
