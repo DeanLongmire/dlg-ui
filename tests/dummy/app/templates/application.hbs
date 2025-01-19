@@ -1,27 +1,30 @@
-{{page-title "Dummy"}}
+{{page-title "DLG-UI"}}
 
-<h2 id="title">dlg-ui</h2>
+<Navbar 
+    @options={{this.navbarOptions}}
+>
+    <div class="app-body">
+        
+        <Dropdown 
+            @class="custom-dropdown" 
+            @options={{this.dropdownOptions}} 
+            @placeholder="Select an option..."
+            @onSelect={{this.onSelect}}
+            {{!-- @forceSelection={{true}}
+            @selectedOption={{this.selectedOption}} --}}
+        />
+        
+        <br>
 
-<Dropdown 
-    @class="custom-dropdown" 
-    @options={{this.dropdownOptions}} 
-    @placeholder="Select an option..."
-    @onSelect={{this.onSelect}}
-    {{!-- @forceSelection={{true}}
-    @selectedOption={{this.selectedOption}} --}}
-/>
-
-<br>
-<br>
-<br>
-
-<HeaderDropdown 
-    @class="custom-dropdown" 
-    @options={{this.dropdownOptions}} 
-    @placeholder="Select an option...!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    @onSelect={{this.onSelect}}
-    @selectedOption={{this.selectedOption}}
-/>
-
-
-{{outlet}}
+        
+        <HeaderDropdown 
+            @class="custom-dropdown" 
+            @options={{this.dropdownOptions}} 
+            @onSelect={{this.onSelect}}
+            @selectedOption={{this.selectedOption}}
+        />
+        
+        
+        {{outlet}}
+    </div>
+</Navbar>

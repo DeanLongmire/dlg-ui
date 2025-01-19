@@ -1,5 +1,17 @@
+.app-body {
+    margin: 0px 10px 50px 10px;
+}
+
+body {
+    margin: 0px;
+}
+
 .custom-dropdown.dropdown-wrapper {
     width: 40%;
+}
+
+.custom-dropdown.header-dropdown-wrapper {
+    width: fit-content;
 }
 
 .custom-dropdown .dropdown-select {

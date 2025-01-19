@@ -1,0 +1,31 @@
+<div class="navbar-wrapper">
+    <div class="navbar-container">
+        <div class="navbar-title">
+            dlg-ui
+        </div>
+        <div class="navbar-elements">
+            {{#each this.navbarOptions as |option|}}
+                {{#if (eq option.type "link")}}
+                    <div class="navbar-selection" {{on "click" (fn this.onSelect option)}}>
+                        {{option.label}}
+                    </div>
+                {{/if}}
+                {{#if (eq option.type "dropdown")}}
+                <div class="navbar-selection">
+                    <HeaderDropdown
+                        @class="navbar-dropdown"
+                        @options={{option.dropdownOptions}}
+                        @placeholder={{option.placeholder}}
+                        @onSelect={{this.onSelect}}
+                        @selectedOption={{option}}
+                        @preventDefault={{true}}
+                    />
+                </div>
+                {{/if}}
+            {{/each}}
+        </div>
+    </div>
+    <div class="navbar-yield">
+        {{yield}}
+    </div>
+</div>

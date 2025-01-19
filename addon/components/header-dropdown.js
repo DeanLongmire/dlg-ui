@@ -23,14 +23,14 @@ export default class DropdownComponent extends Component {
       throw new Error('Dropdown requires an options array');
     }
     if (!this.args.selectedOption) {
-      throw new Error(
-        'Header dropdown requires a selected option'
-      );
+      throw new Error('Header dropdown requires a selected option');
     }
   }
 
   saveSelection(value) {
-    this.selectedOption = value;
+    if(!this.args.preventDefault) {
+      this.selectedOption = value;
+    }
     this.args.onSelect(value);
   }
 
@@ -67,8 +67,8 @@ export default class DropdownComponent extends Component {
 
   @action
   setDropdownWidth() {
-    const targetElement = document.querySelector('.header-dropdown-select');
-    const dropdownOptions = document.querySelector('.header-dropdown-options');
+    const targetElement = document.querySelector('.' + this.args.class + ' .header-dropdown-select');
+    const dropdownOptions = document.querySelector('.' + this.args.class + ' .header-dropdown-options');
 
     if (targetElement && dropdownOptions) {
       const targetWidth = targetElement.offsetWidth;
