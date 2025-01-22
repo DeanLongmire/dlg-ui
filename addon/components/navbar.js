@@ -17,7 +17,7 @@ export default class NavbarComponent extends Component {
     if (!this.args.options) {
       throw new Error('Navbar requires an options array');
     }
-  } 
+  }
 
   @action
   onSelect(value) {

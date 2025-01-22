@@ -2,6 +2,7 @@
     <div class="dropdown-select {{if this.isOpen 'open'}}">
         {{#if this.selectedOption}}
             {{this.selectedOption.label}}
+            {{!-- TODO - If there is no label, then they submitted just strings and we can use those for a dropdown --}}
         {{else}}
             <span class="dropdown-placeholder">
                 {{this.placeholder}}

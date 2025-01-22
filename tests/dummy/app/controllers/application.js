@@ -4,8 +4,9 @@ import { tracked } from '@glimmer/tracking';
 
 export default class ApplicationController extends Controller {
   @tracked selectedOption = { label: 'short option' };
+  @tracked selectedRadioOption = { label: 'short option' };
 
-  dropdownOptions = [
+  options = [
     { label: 'A very very very long option that is long' },
     { label: 'short option' },
     { label: 'a medium size option' },
@@ -52,5 +53,10 @@ export default class ApplicationController extends Controller {
   @action
   onSelect(value) {
     this.selectedOption = value;
+  }
+
+  @action
+  onRadioSelect(value) {
+    this.selectedRadioOption = value;
   }
 }

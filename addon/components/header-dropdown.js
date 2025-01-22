@@ -28,7 +28,7 @@ export default class DropdownComponent extends Component {
   }
 
   saveSelection(value) {
-    if(!this.args.preventDefault) {
+    if (!this.args.preventDefault) {
       this.selectedOption = value;
     }
     this.args.onSelect(value);
@@ -67,8 +67,12 @@ export default class DropdownComponent extends Component {
 
   @action
   setDropdownWidth() {
-    const targetElement = document.querySelector('.' + this.args.class + ' .header-dropdown-select');
-    const dropdownOptions = document.querySelector('.' + this.args.class + ' .header-dropdown-options');
+    const targetElement = document.querySelector(
+      '.' + this.args.class + ' .header-dropdown-select'
+    );
+    const dropdownOptions = document.querySelector(
+      '.' + this.args.class + ' .header-dropdown-options'
+    );
 
     if (targetElement && dropdownOptions) {
       const targetWidth = targetElement.offsetWidth;

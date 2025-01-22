@@ -199,3 +199,13 @@
     flex: 1 1 auto;
     padding-top: 8px;
 }
+
+.radio-label {
+    font-weight: bold;
+}
+
+.radio-options {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0px 5px 0px;
+}
