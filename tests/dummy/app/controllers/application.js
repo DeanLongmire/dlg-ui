@@ -21,9 +21,10 @@ export default class ApplicationController extends Controller {
     },
     {
       label: 'More',
-      route: 'more',
+      route: 'about.more',
       type: 'link',
       index: 2,
+      param: 'param',
     },
     {
       label: 'Settings',
