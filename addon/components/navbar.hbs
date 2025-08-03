@@ -1,20 +1,23 @@
 <div class='navbar-wrapper'>
   <div class='navbar-container'>
-    <div class='navbar-title'>
-      dlg-ui
+    <div
+      class='navbar-title cursor-pointer'
+      {{on 'click' (fn this.onSelect this.homeRoute)}}
+    >
+      {{this.title}}
     </div>
     <div class='navbar-elements'>
       {{#each this.navbarOptions as |option|}}
         {{#if (eq option.type 'link')}}
           <div
-            class='navbar-selection'
+            class='navbar-selection cursor-pointer'
             {{on 'click' (fn this.onSelect option)}}
           >
             {{option.label}}
           </div>
         {{/if}}
         {{#if (eq option.type 'dropdown')}}
-          <div class='navbar-selection'>
+          <div class='navbar-selection cursor-pointer'>
             <HeaderDropdown
               @class='navbar-dropdown'
               @options={{option.dropdownOptions}}

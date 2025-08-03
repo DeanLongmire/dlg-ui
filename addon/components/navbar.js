@@ -5,6 +5,16 @@ import { service } from '@ember/service';
 export default class NavbarComponent extends Component {
   @service router;
 
+  get title() {
+    return this.args.title || 'dlg-ui';
+  }
+
+  get homeRoute() {
+    return {
+      route: this.args.homeRoute || 'index',
+    };
+  }
+
   get navbarOptions() {
     let options = this.args.options;
     return options.sort((a, b) => b.index - a.index);

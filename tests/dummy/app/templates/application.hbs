@@ -1,36 +1,7 @@
 {{page-title 'DLG-UI'}}
 
-<Navbar @options={{this.navbarOptions}}>
+<Navbar @options={{this.navbarOptions}} @title={{this.title}}>
   <div class='app-body'>
-
-    <Dropdown
-      @class='custom-dropdown'
-      @options={{this.options}}
-      @placeholder='Select an option...'
-      @onSelect={{this.onSelect}}
-      @forceSelection={{true}}
-      @selectedOption={{this.selectedOption}}
-    />
-
-    <br />
-
-    <HeaderDropdown
-      @class='custom-dropdown'
-      @options={{this.options}}
-      @onSelect={{this.onSelect}}
-      @selectedOption={{this.selectedOption}}
-    />
-
-    <br />
-
-    <Radio
-      @options={{this.options}}
-      @name='radio'
-      @defaultOption={{this.selectedRadioOption}}
-      @onChange={{this.onRadioSelect}}
-      @label='Radio'
-    />
-
     {{outlet}}
   </div>
 </Navbar>

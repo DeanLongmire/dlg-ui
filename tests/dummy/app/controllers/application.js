@@ -1,17 +1,6 @@
 import Controller from '@ember/controller';
-import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
 
 export default class ApplicationController extends Controller {
-  @tracked selectedOption = { label: 'short option' };
-  @tracked selectedRadioOption = { label: 'short option' };
-
-  options = [
-    { label: 'A very very very long option that is long' },
-    { label: 'short option' },
-    { label: 'a medium size option' },
-  ];
-
   navbarOptions = [
     {
       label: 'Login',
@@ -21,10 +10,9 @@ export default class ApplicationController extends Controller {
     },
     {
       label: 'More',
-      route: 'about.more',
+      route: 'more',
       type: 'link',
       index: 2,
-      param: 'param',
     },
     {
       label: 'Settings',
@@ -34,13 +22,14 @@ export default class ApplicationController extends Controller {
       dropdownOptions: [
         {
           label: 'Profile',
-          route: 'profile',
+          route: 'settings.profile',
           index: 0,
         },
         {
           label: 'Accountaaaaaaaaa',
-          route: 'account',
+          route: 'accounts.account',
           index: 1,
+          param: '1234',
         },
         {
           label: 'Billing',
@@ -51,13 +40,5 @@ export default class ApplicationController extends Controller {
     },
   ];
 
-  @action
-  onSelect(value) {
-    this.selectedOption = value;
-  }
-
-  @action
-  onRadioSelect(value) {
-    this.selectedRadioOption = value;
-  }
+  title = 'DLG-UI';
 }
