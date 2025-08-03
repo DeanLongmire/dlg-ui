@@ -22,12 +22,23 @@
 
 .dropdown-options {
   white-space: normal;
+  max-height: 0;
   overflow-wrap: break-word;
   border-style: solid;
   border-top-style: none;
   border-bottom-style: none;
   border-width: 2px;
   background-color: #f6f6f6;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0;
+}
+
+.dropdown-options.display {
+  opacity: 1;
+  max-height: 500px;
+  transform: scaleY(1);
 }
 
 .dropdown-placeholder {

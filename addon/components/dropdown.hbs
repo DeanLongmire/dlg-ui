@@ -1,21 +1,22 @@
-<div class="dropdown-wrapper {{@class}}" {{did-insert this.loadClickListener}}>
-    <div class="dropdown-select {{if this.isOpen 'open'}}">
-        {{#if this.selectedOption}}
-            {{this.selectedOption.label}}
-            {{!-- TODO - If there is no label, then they submitted just strings and we can use those for a dropdown --}}
-        {{else}}
-            <span class="dropdown-placeholder">
-                {{this.placeholder}}
-            </span>
-        {{/if}}
-    </div>
-    {{#if this.isOpen}}
-        <div class="dropdown-options">
-            {{#each @options as |option|}}
-                <div class="dropdown-option" {{on "click" (fn this.makeSelection option)}}>
-                    {{option.label}}
-                </div>
-            {{/each}}
-        </div>
+<div class='dropdown-wrapper {{@class}}' {{did-insert this.loadClickListener}}>
+  <div class='dropdown-select {{if this.isOpen "open"}}'>
+    {{#if this.selectedOption}}
+      {{this.selectedOption.label}}
+      {{! TODO - If there is no label, then they submitted just strings and we can use those for a dropdown }}
+    {{else}}
+      <span class='dropdown-placeholder'>
+        {{this.placeholder}}
+      </span>
     {{/if}}
+  </div>
+  <div class={{this.dropdownClass}}>
+    {{#each @options as |option|}}
+      <div
+        class='dropdown-option'
+        {{on 'click' (fn this.makeSelection option)}}
+      >
+        {{option.label}}
+      </div>
+    {{/each}}
+  </div>
 </div>

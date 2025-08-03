@@ -6,6 +6,14 @@ export default class DropdownComponent extends Component {
   @tracked isOpen = false;
   @tracked _selectedOption = this.args.selectedOption;
 
+  get dropdownClass() {
+    if (this.isOpen) {
+      return 'dropdown-options display';
+    } else {
+      return 'dropdown-options';
+    }
+  }
+
   get selectedOption() {
     if (this.args.selectedOption) {
       return this.args.selectedOption;
