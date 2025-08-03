@@ -1,38 +1,36 @@
-{{page-title "DLG-UI"}}
+{{page-title 'DLG-UI'}}
 
-<Navbar 
-    @options={{this.navbarOptions}}
->
-    <div class="app-body">
-        
-        <Dropdown 
-            @class="custom-dropdown" 
-            @options={{this.options}} 
-            @placeholder="Select an option..."
-            @onSelect={{this.onSelect}}
-            {{!-- @forceSelection={{true}}
-            @selectedOption={{this.selectedOption}} --}}
-        />
+<Navbar @options={{this.navbarOptions}}>
+  <div class='app-body'>
 
-        <br>
+    <Dropdown
+      @class='custom-dropdown'
+      @options={{this.options}}
+      @placeholder='Select an option...'
+      @onSelect={{this.onSelect}}
+      @forceSelection={{true}}
+      @selectedOption={{this.selectedOption}}
+    />
 
-        <HeaderDropdown 
-            @class="custom-dropdown" 
-            @options={{this.options}} 
-            @onSelect={{this.onSelect}}
-            @selectedOption={{this.selectedOption}}
-        />
+    <br />
 
-        <br>
+    <HeaderDropdown
+      @class='custom-dropdown'
+      @options={{this.options}}
+      @onSelect={{this.onSelect}}
+      @selectedOption={{this.selectedOption}}
+    />
 
-        <Radio 
-            @options={{this.options}}
-            @name="radio"
-            @defaultOption={{this.selectedRadioOption}}
-            @onChange={{this.onRadioSelect}}
-            @label="Radio"
-        />
-        
-        {{outlet}}
-    </div>
+    <br />
+
+    <Radio
+      @options={{this.options}}
+      @name='radio'
+      @defaultOption={{this.selectedRadioOption}}
+      @onChange={{this.onRadioSelect}}
+      @label='Radio'
+    />
+
+    {{outlet}}
+  </div>
 </Navbar>
