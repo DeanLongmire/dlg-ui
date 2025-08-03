@@ -24,10 +24,10 @@ export default class NavbarComponent extends Component {
     if (this.args.onSelect) {
       this.args.onSelect(value);
     }
-    if (!this.args.preventDefault && !this.args.param) {
+    if (!this.args.preventDefault && !this.value.param) {
       this.router.transitionTo(value.route);
-    } else if (!this.args.preventDefault && this.args.param) {
-      this.router.transitionTo(value.route, this.args.param);
+    } else if (!this.args.preventDefault && this.value.param) {
+      this.router.transitionTo(value.route, this.value.param);
     }
   }
 }
