@@ -136,18 +136,23 @@
   width: 100%;
 }
 
+.navbar-body {
+  flex: 1 1 auto;
+  padding: 0 1em;
+}
+
 .navbar-container {
   background-color: #eee;
   position: sticky;
   top: 0;
   left: 0;
-  width: 100%;
   min-height: 5vh;
   height: fit-content;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 10;
+  padding: 0 1em;
 }
 
 .navbar-dropdown .header-dropdown-options {
@@ -176,7 +181,6 @@
   display: flex;
   flex-wrap: wrap;
   width: fit-content;
-  margin-right: 10px;
 }
 
 .navbar-selection {
@@ -185,9 +189,13 @@
   align-items: center;
 }
 
+.navbar-selection:last-child {
+  margin-right: 0;
+}
+
 .navbar-title {
   font-size: clamp(20px, 3vw, 30px);
-  margin: 0px 8px 0px 8px;
+  margin-right: 1em;
   width: fit-content;
   white-space: nowrap;
   font-weight: bold;
@@ -200,6 +208,8 @@
 }
 
 .navbar-yield {
+  display: flex;
+  justify-content: center;
   flex: 1 1 auto;
   padding-top: 8px;
 }
