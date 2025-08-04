@@ -19,6 +19,8 @@ export default class ApplicationController extends Controller {
       route: 'settings',
       type: 'dropdown',
       index: 1,
+      placeholder: 'Settings',
+      preventDefault: true,
       dropdownOptions: [
         {
           label: 'Profile',

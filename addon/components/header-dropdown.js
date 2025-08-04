@@ -4,7 +4,15 @@ import { tracked } from '@glimmer/tracking';
 
 export default class DropdownComponent extends Component {
   @tracked isOpen = false;
-  @tracked _selectedOption = this.args.selectedOption;
+  @tracked _selectedOption = this.selectedOption;
+
+  get displaySelectedOption() {
+    if (this._selectedOption) {
+      return this._selectedOption.label;
+    } else {
+      return this.placeholder;
+    }
+  }
 
   get selectedOption() {
     if (this.args.selectedOption) {
@@ -29,9 +37,6 @@ export default class DropdownComponent extends Component {
     }
     if (!this.args.options) {
       throw new Error('Dropdown requires an options array');
-    }
-    if (!this.args.selectedOption) {
-      throw new Error('Header dropdown requires a selected option');
     }
   }
 

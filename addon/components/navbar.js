@@ -1,9 +1,11 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
 export default class NavbarComponent extends Component {
   @service router;
+  @tracked selectedOption = null;
 
   get title() {
     return this.args.title || 'dlg-ui';
@@ -31,6 +33,7 @@ export default class NavbarComponent extends Component {
 
   @action
   onSelect(value) {
+    this.selectedOption = value;
     if (this.args.onSelect) {
       this.args.onSelect(value);
     }

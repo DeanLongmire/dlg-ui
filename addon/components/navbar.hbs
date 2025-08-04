@@ -23,8 +23,8 @@
               @options={{option.dropdownOptions}}
               @placeholder={{option.placeholder}}
               @onSelect={{this.onSelect}}
-              @selectedOption={{option}}
-              @preventDefault={{true}}
+              @selectedOption={{this.selectedOption}}
+              @preventDefault={{option.preventDefault}}
             />
           </div>
         {{/if}}
