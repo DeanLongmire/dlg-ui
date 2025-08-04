@@ -94,10 +94,18 @@
   border-bottom-style: none;
   border-width: 2px;
   background-color: #f6f6f6;
+  max-height: 0;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .header-dropdown-options.open {
   border-top-style: solid;
+  opacity: 1;
+  max-height: 500px;
+  transform: scaleY(1);
 }
 
 .header-dropdown-select {

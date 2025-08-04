@@ -52,6 +52,7 @@ export default class DropdownComponent extends Component {
 
     element.addEventListener('click', (event) => {
       if (!event.target.classList.contains('dropdown-option')) {
+        this.setDropdownWidth();
         this.isOpen = !this.isOpen;
       }
     });

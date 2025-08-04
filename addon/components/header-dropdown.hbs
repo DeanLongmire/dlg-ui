@@ -1,16 +1,23 @@
-<div class="header-dropdown-wrapper {{@class}}" {{did-insert this.loadClickListener}}>
-    <div class="header-dropdown-select {{if this.isOpen 'open'}}">
-        <span class="header-dropdown-selected">
-            {{this.selectedOption.label}}
-        </span>
-    </div>
-    {{#if this.isOpen}}
-        <div class="header-dropdown-options {{if this.isOpen 'open'}}" {{did-insert this.setDropdownWidth}}>
-            {{#each @options as |option|}}
-                <div class="dropdown-option" {{on "click" (fn this.makeSelection option)}}>
-                    {{option.label}}
-                </div>
-            {{/each}}
-        </div>
-    {{/if}}
+<div
+  class='header-dropdown-wrapper {{@class}}'
+  {{did-insert this.loadClickListener}}
+>
+  <div class='header-dropdown-select {{if this.isOpen "open"}}'>
+    <span class='header-dropdown-selected'>
+      {{this.selectedOption.label}}
+    </span>
+  </div>
+  <div
+    class='header-dropdown-options {{if this.isOpen "open"}}'
+    {{did-insert this.setDropdownWidth}}
+  >
+    {{#each @options as |option|}}
+      <div
+        class='dropdown-option'
+        {{on 'click' (fn this.makeSelection option)}}
+      >
+        {{option.label}}
+      </div>
+    {{/each}}
+  </div>
 </div>

@@ -3,13 +3,13 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class IndexController extends Controller {
-  @tracked selectedOption = { label: 'short option' };
-  @tracked selectedRadioOption = { label: 'short option' };
+  @tracked selectedOption = { label: 'a medium size option' };
+  @tracked selectedRadioOption = { label: 'a medium size option' };
 
   options = [
-    { label: 'A very very very long option that is long' },
     { label: 'short option' },
     { label: 'a medium size option' },
+    { label: 'A very very very long option that is long' },
   ];
 
   @action
