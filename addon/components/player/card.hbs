@@ -1,0 +1,22 @@
+<div class='player-wrapper'>
+  <div class='player-card'>
+    <div class='player-pos'>
+      {{@position}}
+    </div>
+    <div class='player-name'>
+      <span class='player-text'>
+        {{@player}}
+      </span>
+      <span class='player-points'>
+        {{@points}}
+        pts
+      </span>
+    </div>
+    <div class='player-pic'>
+      <img src={{@picture}} alt='Player Picture' />
+    </div>
+    <div class={{this.trophyClass}} style={{this.trophyStyle}}>
+      <img src='/trophy-removebg-preview.png' alt='Player Trophy' />
+    </div>
+  </div>
+</div>

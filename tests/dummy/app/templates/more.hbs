@@ -2,12 +2,74 @@
   <Content>
     <:header>
       <div style='display: flex; justify-content: center; align-items: center;'>
-        <h1>Header</h1>
+        <h1>Players of the Week</h1>
+      </div>
+      <div style='width: 40vw;'>
+        <Player::Card
+          @player={{this.player}}
+          @trophyCount={{this.trophyCount}}
+          @points={{this.points}}
+          @position={{this.position}}
+          @picture={{this.picture}}
+        />
       </div>
     </:header>
     <:body>
-      <p style='display: flex; justify-content: center;'>This is the body
-        content.</p>
+      <div
+        style='display: flex; flex-direction: row; flex-wrap: wrap; width: 40vw;'
+      >
+        <div style='width: 50%;'>
+          <Player::Card
+            @player={{this.player}}
+            @points={{this.points}}
+            @position={{this.position}}
+            @picture={{this.picture}}
+          />
+        </div>
+        <div style='width: 50%;'>
+          <Player::Card
+            @player={{this.player}}
+            @points={{this.points}}
+            @position={{this.position}}
+            @picture={{this.picture}}
+          />
+        </div>
+        <div style='width: 50%;'>
+          <Player::Card
+            @player={{this.player}}
+            @trophyCount={{2}}
+            @points={{this.points}}
+            @position={{this.position}}
+            @picture={{this.picture}}
+          />
+        </div>
+        <div style='width: 50%;'>
+          <Player::Card
+            @player={{this.player}}
+            @trophyCount={{3}}
+            @points={{this.points}}
+            @position={{this.position}}
+            @picture={{this.picture}}
+          />
+        </div>
+        <div style='width: 50%;'>
+          <Player::Card
+            @player={{this.player}}
+            @points={{this.points}}
+            @position={{this.position}}
+            @picture={{this.picture}}
+          />
+        </div>
+        <div style='width: 50%;'>
+          <Player::Card
+            @player={{this.player}}
+            @trophyCount={{5}}
+            @points={{this.points}}
+            @position={{this.position}}
+            @picture={{this.picture}}
+          />
+        </div>
+      </div>
     </:body>
   </Content>
 </div>
