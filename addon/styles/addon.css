@@ -210,11 +210,7 @@
 }
 
 .navbar-dropdown .header-dropdown-select::after {
-  top: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding-top: 2px;
+  top: -3px;
 }
 
 .navbar-dropdown .header-dropdown-selected {
