@@ -1,8 +1,3 @@
-@import url('/addon/styles/dropdown.css');
-@import url('/addon/styles/fly-in.css');
-@import url('/addon/styles/navbar.css');
-@import url('/addon/styles/player-card.css');
-
 .cursor-pointer {
   cursor: pointer;
 }
