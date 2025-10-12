@@ -1,0 +1,14 @@
+<div class="fly-in-wrapper" id="fly-in-wrapper" {{did-insert this.configWrapper}}>
+    <div class="fly-in-container">
+        <div class="fly-in-preview">
+            <img class="fly-in-image" src={{this.imageSrc}} style="width: 100%;" />
+            <i class="fly-in-icon" ...attributes>aaaaaaa</i>
+        </div>
+        <div class="fly-in-title" {{did-insert this.configContent}}>
+            <h3>{{this.title}}</h3>
+        </div>
+    </div>
+    <div class="fly-in-dropdown">
+        {{yield to="dropdown"}}
+    </div>
+</div>
