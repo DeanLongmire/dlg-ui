@@ -6,6 +6,10 @@ export default class FlyInComponent extends Component {
         return this.args.activeWidth || '300px';
     }
 
+    get icon() {
+        return this.args.icon || null;
+    }
+
     get imageSrc() {
         return this.args.imageSrc || 'https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png';
     }

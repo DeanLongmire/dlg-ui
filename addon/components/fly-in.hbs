@@ -2,7 +2,7 @@
     <div class="fly-in-container">
         <div class="fly-in-preview">
             <img class="fly-in-image" src={{this.imageSrc}} style="width: 100%;" />
-            <i class="fly-in-icon" ...attributes>aaaaaaa</i>
+            <FaIcon @icon={{this.icon}} class="fly-in-icon"/>
         </div>
         <div class="fly-in-title" {{did-insert this.configContent}}>
             <h3>{{this.title}}</h3>

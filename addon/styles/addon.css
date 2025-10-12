@@ -142,6 +142,8 @@
 .fly-in-icon {
   align-self: center;
   padding: 0.5em;
+  height: 50% !important;
+  width: auto !important;
 }
 
 .fly-in-wrapper:hover .fly-in-title {

@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { faFootball } from '@fortawesome/free-solid-svg-icons';
 
 export default class MoreController extends Controller {
   @tracked player = 'LeBron James';
@@ -10,7 +11,11 @@ export default class MoreController extends Controller {
   @tracked picture =
     'https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png';
 
-  @action
+  get icon() {
+    return faFootball;
+  }
+  
+    @action
   onSelect(value) {
     this.selectedOption = value;
   }
