@@ -1,0 +1,76 @@
+.fly-in-container {
+  height: inherit;
+}
+
+.fly-in-dropdown {
+  background-color: #d6d6d6;
+  border-bottom-left-radius: 10px;
+  border: solid;
+  border-right: none;
+  border-width: 2px;
+  padding: 10px;
+  z-index: 2;
+  opacity: 0;
+  max-height: 0;
+  right: 0%;
+  display: none;
+}
+
+.fly-in-dropdown-hover {
+  opacity: 1;
+  max-height: 500px;
+  max-width: 500px;
+}
+
+.fly-in-icon {
+  align-self: center;
+  padding: 0.5em;
+  height: 50% !important;
+  width: auto !important;
+}
+
+.fly-in-image {
+  height: inherit;
+  padding: 0.5em;
+  box-sizing: border-box;
+  border-top-left-radius: 38%;
+  border-bottom-left-radius: 38%;
+  border-bottom-right-radius: 38%;
+  background-color: #e6e6e6;
+  position: relative;
+}
+
+.fly-in-preview {
+  height: inherit;
+  display: flex;
+  justify-self: start;
+  position: relative;
+  right: 43px;
+  margin-right: -43px;
+}
+
+.fly-in-title {
+  opacity: 0;
+  max-height: 0;
+  position: absolute;
+  top: 20%;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.fly-in-wrapper:hover .fly-in-title {
+  opacity: 1;
+  max-height: 500px;
+}
+
+.fly-in-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: #d6d6d6;
+  right: 0%;
+  height: 10vh;
+  transition: width 0.3s ease;
+  min-width: 131px;
+  transition: min-width 0.3s ease;
+}
