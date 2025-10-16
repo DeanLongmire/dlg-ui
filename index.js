@@ -9,12 +9,16 @@ module.exports = {
   included(app) {
     this._super.included.apply(this, arguments);
 
-    app.import('public/trophy-removebg-preview.png', {
-      destDir: 'assets',
-    });
-
     // Concatenate all CSS files into addon.css at build time
     this.concatCSSFiles();
+  },
+
+  treeForPublic() {
+    const publicTree = new Funnel(path.join(__dirname, 'public'), {
+      destDir: '/',
+    });
+
+    return publicTree;
   },
 
   concatCSSFiles() {
