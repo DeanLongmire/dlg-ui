@@ -9,7 +9,7 @@ module.exports = {
   included(app) {
     this._super.included.apply(this, arguments);
 
-    app.import('/trophy-removebg-preview.png', {
+    app.import('public/trophy-removebg-preview.png', {
       destDir: 'assets',
     });
 
