@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const Funnel = require('broccoli-funnel');
 
 module.exports = {
   name: require('./package').name,
