@@ -11,7 +11,7 @@ module.exports = {
     this._super.included.apply(this, arguments);
 
     // Concatenate all CSS files into addon.css at build time
-    this.concatCSSFiles();
+    // this.concatCSSFiles();
   },
 
   treeForPublic() {
