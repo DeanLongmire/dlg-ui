@@ -13,6 +13,14 @@ module.exports = {
     this.concatCSSFiles();
   },
 
+  // Copy public assets to consuming app
+  treeForPublic() {
+    const publicTree = this._super.treeForPublic.apply(this, arguments);
+
+    // This will copy everything from addon/public to the consuming app's public folder
+    return publicTree;
+  },
+
   concatCSSFiles() {
     const stylesDir = path.join(__dirname, 'addon/styles');
     const addonCssPath = path.join(stylesDir, 'addon.css');
