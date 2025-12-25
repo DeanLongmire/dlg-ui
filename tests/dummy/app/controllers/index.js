@@ -21,4 +21,9 @@ export default class IndexController extends Controller {
   onRadioSelect(value) {
     this.selectedRadioOption = value;
   }
+
+  @action
+  onClick() {
+    console.log('clicked');
+  }
 }

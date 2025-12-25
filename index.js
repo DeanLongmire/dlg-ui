@@ -31,6 +31,7 @@ module.exports = {
       'fly-in.css',
       'navbar.css',
       'player-card.css',
+      'button.css',
     ];
 
     // Start with existing addon.css content (without the @import statements)
