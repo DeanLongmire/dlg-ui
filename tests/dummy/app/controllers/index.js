@@ -5,6 +5,7 @@ import { tracked } from '@glimmer/tracking';
 export default class IndexController extends Controller {
   @tracked selectedOption = { label: 'a medium size option' };
   @tracked selectedRadioOption = { label: 'a medium size option' };
+  @tracked isModalOpen = false;
 
   options = [
     { label: 'short option' },
@@ -23,7 +24,7 @@ export default class IndexController extends Controller {
   }
 
   @action
-  onClick() {
-    console.log('clicked');
+  toggleModal() {
+    this.isModalOpen = !this.isModalOpen;
   }
 }

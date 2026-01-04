@@ -1,0 +1,20 @@
+<div class="modal-backdrop {{if this.isOpen "modal-open" "modal-closed"}}">
+    <div class="modal">
+            <a {{on "click" this.toggleModal}}><FaIcon @icon={{this.icon}} class="modal-x"/></a>
+        <div class="modal-header">
+            <h1 style="margin-top: 0;">{{yield to="header"}}</h1>
+        </div>
+        <div class="modal-body">
+            {{yield to="body"}}
+        </div>
+        <div class="modal-footer">
+            <ButtonPrimary @onClick={{this.toggleModal}}>
+                Cancel
+            </ButtonPrimary>
+            <ButtonPrimary @onClick={{this.acceptAndClose}} style="margin-left: 1em;">
+                Done
+            </ButtonPrimary>
+            {{yield to="footer"}}
+        </div>
+    </div>
+</div>
