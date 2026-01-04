@@ -32,6 +32,7 @@ module.exports = {
       'navbar.css',
       'player-card.css',
       'button.css',
+      'modal.css',
     ];
 
     // Start with existing addon.css content (without the @import statements)

@@ -28,6 +28,11 @@
 
 <br />
 
-<ButtonPrimary @onClick={{this.onClick}}>
-  Primary Button
+<ButtonPrimary @onClick={{this.toggleModal}}>
+  Open Modal
 </ButtonPrimary>
+
+<Modal @toggleModal={{this.toggleModal}} @isOpen={{this.isModalOpen}}>
+  <:header>Modal Header</:header>
+  <:body>Modal Body</:body>
+</Modal>
