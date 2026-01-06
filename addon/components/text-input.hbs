@@ -1,0 +1,12 @@
+<div class="text-input-wrapper">
+    <div class="label">
+        {{this.args.label}}
+    </div>
+    <input
+        type="text"
+        class="text-input"
+        placeholder={{this.args.placeholder}}
+        value={{this.value}}
+        {{on "input" this.updateValue}}
+    />
+</div>

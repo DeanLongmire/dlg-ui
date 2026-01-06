@@ -1,0 +1,8 @@
+<div class="form-wrapper {{@class}}">
+    <form>
+        {{yield (hash Field=(component "form/field" addValidator=this.addValidator didValidate=this.didValidate errors=this.errors validate=this.validate))}}
+    </form>
+    <ButtonPrimary @onClick={{this.submitForm}}>
+        Submit
+    </ButtonPrimary>
+</div>

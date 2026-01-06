@@ -11,6 +11,18 @@ importers:
       '@ember/string':
         specifier: ^3.1.1
         version: 3.1.1
+      '@fortawesome/ember-fontawesome':
+        specifier: ^3.1.0
+        version: 3.1.0(@fortawesome/fontawesome-svg-core@7.1.0)(@glimmer/component@1.1.2(@babel/core@7.28.4))
+      '@fortawesome/fontawesome-svg-core':
+        specifier: ^7.1.0
+        version: 7.1.0
+      '@fortawesome/free-solid-svg-icons':
+        specifier: ^7.1.0
+        version: 7.1.0
+      ember-auto-import:
+        specifier: ^2.4.3
+        version: 2.10.1(webpack@5.102.0)
       ember-cli-babel:
         specifier: ^8.2.0
         version: 8.2.0(@babel/core@7.28.4)
@@ -30,15 +42,6 @@ importers:
       '@embroider/test-setup':
         specifier: ^1.8.3
         version: 1.8.3
-      '@fortawesome/ember-fontawesome':
-        specifier: ^3.1.0
-        version: 3.1.0(@fortawesome/fontawesome-svg-core@7.1.0)(@glimmer/component@1.1.2(@babel/core@7.28.4))
-      '@fortawesome/fontawesome-svg-core':
-        specifier: ^7.1.0
-        version: 7.1.0
-      '@fortawesome/free-solid-svg-icons':
-        specifier: ^7.1.0
-        version: 7.1.0
       '@glimmer/component':
         specifier: ^1.1.2
         version: 1.1.2(@babel/core@7.28.4)
@@ -54,9 +57,6 @@ importers:
       broccoli-merge-trees:
         specifier: ^4.2.0
         version: 4.2.0
-      ember-auto-import:
-        specifier: ^2.4.3
-        version: 2.10.1(webpack@5.102.0)
       ember-cli:
         specifier: ~4.12.0
         version: 4.12.3(@types/node@24.6.0)(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7)

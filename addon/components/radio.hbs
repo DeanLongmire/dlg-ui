@@ -1,5 +1,5 @@
-<div class="radio-container">
-    <div class="radio-label">
+<div class="radio-container {{@class}}">
+    <div class="label">
         {{this.args.label}}
     </div>
     <div class="radio-options">
@@ -8,9 +8,8 @@
                 <input 
                     type="radio"
                     id={{option.label}}
-                    checked={{option.isChecked}}
+                    checked={{eq option.label this.value.label}}
                     name={{this.args.name}}
-                    checked={{option.isChecked}}
                     {{on "change" (fn this.onChange option)}}
                 />
                 <label for={{option.label}}>

@@ -1,0 +1,11 @@
+<div class={{@class}}>
+    <div class="label">
+        {{this.args.label}}
+    </div>
+  <div class="checkbox-container">
+    <div>
+      <input type="checkbox" id="checkboxId" checked={{this.value}} {{on "change" (fn this.onChange)}} />
+      <label for="checkboxId">{{@option.label}}</label>
+    </div>
+  </div>
+</div>

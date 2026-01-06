@@ -2,9 +2,8 @@
   @class='custom-dropdown'
   @options={{this.options}}
   @placeholder='Select an option...'
-  @onSelect={{this.onSelect}}
-  @forceSelection={{true}}
-  @selectedOption={{this.selectedOption}}
+  @model={{this}}
+  @valuePath="dropdownValue"
 />
 
 <br />
@@ -12,8 +11,8 @@
 <HeaderDropdown
   @class='custom-dropdown'
   @options={{this.options}}
-  @onSelect={{this.onSelect}}
-  @selectedOption={{this.selectedOption}}
+  @model={{this}}
+  @valuePath="dropdownValue"
 />
 
 <br />
@@ -21,9 +20,44 @@
 <Radio
   @options={{this.options}}
   @name='radio'
-  @defaultOption={{this.selectedRadioOption}}
-  @onChange={{this.onRadioSelect}}
   @label='Radio'
+  @model={{this}}
+  @valuePath="radioValue"
+/>
+
+<br />
+
+<div style="width: 40%;">
+  <TextInput
+    @placeholder='Enter text here...'
+    @model={{this}}
+    @valuePath="name"
+  />
+</div>
+
+<br />
+
+<div style="width: 40%;">
+  <DatePicker 
+    @model={{this}}
+    @valuePath="date"
+  />
+</div>
+
+<br />
+
+<Checkbox 
+  @model={{this}}
+  @valuePath="checkboxValue"
+  @option={{this.option}}
+/>
+
+<br />
+
+<CheckboxGroup
+  @options={{this.options}}
+  @model={{this}}
+  @valuePath="checkboxGroup"
 />
 
 <br />
@@ -31,6 +65,53 @@
 <ButtonPrimary @onClick={{this.toggleModal}}>
   Open Modal
 </ButtonPrimary>
+
+<br />
+
+<Form @class="custom-form" @model={{this}} as |form|>
+  <form.Field @label='Form Radio' @required={{true}} @valuePath="radioValue" as |field|>
+    <field.Radio 
+      @options={{this.options}}
+      @name='radio'
+      @model={{this}}
+    />
+  </form.Field>
+
+  <form.Field @label='Form Dropdown' @valuePath="dropdownValue" @required={{true}} as |field|>
+    <field.Dropdown 
+      @options={{this.options}}
+      @placeholder='Select an option...'
+      @model={{this}}
+    />
+  </form.Field>
+
+  <form.Field @label='Form Text Input' @valuePath="name" @required={{true}} as |field|>
+    <field.TextInput
+      @placeholder='Enter text here...'
+      @model={{this}}
+    />
+  </form.Field>
+
+  <form.Field @valuePath="date" @required={{true}} @label='Form Date Picker' as |field|>
+    <field.DatePicker 
+      @model={{this}}
+    />
+  </form.Field>
+
+  <form.Field @valuePath="checkboxValue" @label='Form Checkbox' @required={{true}} as |field|>
+    <field.Checkbox 
+      @model={{this}}
+      @option={{this.option}}
+    />
+  </form.Field>
+
+  <form.Field @label="Form Checkbox Group" @valuePath="checkboxGroup" @required={{true}} as |field|>
+    <field.CheckboxGroup
+      @options={{this.options}}
+      @model={{this}}
+    />
+  </form.Field>
+</Form>
 
 <Modal @toggleModal={{this.toggleModal}} @isOpen={{this.isModalOpen}}>
   <:header>Modal Header</:header>

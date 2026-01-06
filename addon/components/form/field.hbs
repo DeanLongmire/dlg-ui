@@ -1,0 +1,18 @@
+<div class="form-field">
+    <div class="label">
+        {{@label}} {{#if @required}}<span class="required">*</span>{{/if}}
+    </div>
+    <div class="field-input {{if this.error "has-error"}}">
+      {{yield (hash
+      Checkbox=(component "checkbox" valuePath=@valuePath class="field-border" onChange=this.onChange)
+      CheckboxGroup=(component "checkbox-group" valuePath=@valuePath class="field-border" onChange=this.onChange)
+      DatePicker=(component "date-picker" valuePath=@valuePath onChange=this.onChange)
+      Dropdown=(component "dropdown" valuePath=@valuePath onChange=this.onChange)
+      Radio=(component "radio" valuePath=@valuePath class="field-border" onChange=this.onChange)
+      TextInput=(component "text-input" valuePath=@valuePath onChange=this.onChange)
+      )}}
+    </div>
+    <div class="field-validation">
+      {{this.error}}
+    </div>
+</div>
