@@ -27,12 +27,16 @@ module.exports = {
     const addonCssPath = path.join(stylesDir, 'addon.css');
 
     const cssFiles = [
+      'button.css',
+      'checkbox.css',
+      'date-picker.css',
       'dropdown.css',
       'fly-in.css',
+      'form.css',
+      'modal.css',
       'navbar.css',
       'player-card.css',
-      'button.css',
-      'modal.css',
+      'text-input.css',
     ];
 
     // Start with existing addon.css content (without the @import statements)

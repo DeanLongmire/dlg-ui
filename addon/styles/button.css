@@ -1,7 +1,7 @@
 .btn-primary {
     background-color: #eee;
     color: black;
-    border: solid;
+    border: 2px solid;
     padding: 10px 20px;
     cursor: pointer;
     width: fit-content;

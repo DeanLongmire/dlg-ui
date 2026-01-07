@@ -1,0 +1,1 @@
+export { default } from 'dlg-ui/components/text-input';

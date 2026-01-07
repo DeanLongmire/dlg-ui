@@ -1,10 +1,9 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
+import { action, get, set } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class DropdownComponent extends Component {
   @tracked isOpen = false;
-  @tracked _selectedOption = this.args.selectedOption;
 
   get dropdownClass() {
     if (this.isOpen) {
@@ -14,12 +13,13 @@ export default class DropdownComponent extends Component {
     }
   }
 
-  get selectedOption() {
-    if (this.args.selectedOption) {
-      return this.args.selectedOption;
-    } else {
-      null;
-    }
+  get options() {
+    let options = [];
+    options.push({ label: null });
+    this.args.options.forEach((option) => {
+      options.push(option);
+    });
+    return options;
   }
 
   get placeholder() {
@@ -30,26 +30,28 @@ export default class DropdownComponent extends Component {
     }
   }
 
+  get value() {
+    const value = get(this.args.model, this.args.valuePath);
+    return value !== undefined ? value : this.placeholder;
+  }
+  
+  set value(newValue) {
+    set(this.args.model, this.args.valuePath, newValue);
+    return newValue;
+  }
+
   constructor() {
     super(...arguments);
-    if (!this.args.onSelect) {
-      console.warn('Dropdown 2-way binding needs an onSelect action');
-    }
     if (!this.args.options) {
       throw new Error('Dropdown requires an options array');
-    }
-    if (this.args.forceSelection && !this.args.selectedOption) {
-      throw new Error(
-        'Dropdown requires a selected option when forceSelection is true'
-      );
     }
   }
 
   saveSelection(value) {
     if (!this.args.preventDefault) {
-      this._selectedOption = value;
+      this.value = value;
     }
-    this.args.onSelect(value);
+    this.args.onSelect?.(value);
   }
 
   @action
@@ -75,12 +77,12 @@ export default class DropdownComponent extends Component {
 
   @action
   makeSelection(option) {
-    if (!this.args.forceSelection && option === this.selectedOption) {
+    if (option === this.value) {
       this.saveSelection(null);
-      this.isOpen = false;
     } else {
       this.saveSelection(option);
-      this.isOpen = false;
     }
+    this.isOpen = false;
+    this.args.onChange?.(this.value);
   }
 }

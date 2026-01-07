@@ -1,0 +1,16 @@
+.date-picker {
+    min-height: 2.375em;
+    width: 100%;
+    border: 2px solid;
+    padding: 8px 20px 8px 8px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    border-color: inherit;
+    background-color: #eee;
+}
+
+.date-picker-wrapper {
+    border-color: inherit;
+}

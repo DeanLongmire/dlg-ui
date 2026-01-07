@@ -1,25 +1,26 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
+import { get, set } from '@ember/object';
 
 export default class RadioComponent extends Component {
-  @tracked
-  selectedOption = this.args.defaultOption || {};
-
   get options() {
-    let options = [];
-    this.args.options.forEach((option) => {
-      if (option.label === this.selectedOption.label) {
-        option.isChecked = true;
-      }
-      options.push(option);
-    });
     return this.args.options || [];
   }
 
-  @action
-  onChange(option) {
-    this.selectedOption = option;
-    this.args.onChange(option);
+  get value() {
+    if (!this.args.model || !this.args.valuePath) {
+      return undefined;
+    }
+    const value = get(this.args.model, this.args.valuePath);
+    return value !== undefined ? value : this.placeholder;
+  }
+  
+  set value(newValue) {
+    set(this.args.model, this.args.valuePath, newValue);
+    return newValue;
+  }
+
+  onChange = (option) => {
+    this.value = option;
+    this.args.onChange?.(option);
   }
 }

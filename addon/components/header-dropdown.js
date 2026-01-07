@@ -1,24 +1,15 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
+import { action, get, set } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class DropdownComponent extends Component {
   @tracked isOpen = false;
-  @tracked _selectedOption = this.selectedOption;
 
   get displaySelectedOption() {
-    if (this._selectedOption) {
-      return this._selectedOption.label;
+    if (this.value?.label) {
+      return this.value.label;
     } else {
       return this.placeholder;
-    }
-  }
-
-  get selectedOption() {
-    if (this.args.selectedOption) {
-      return this.args.selectedOption;
-    } else {
-      null;
     }
   }
 
@@ -30,11 +21,21 @@ export default class DropdownComponent extends Component {
     }
   }
 
+  get value() {
+    if (!this.args.model || !this.args.valuePath) {
+      return undefined;
+    }
+    const value = get(this.args.model, this.args.valuePath);
+    return value !== undefined ? value : this.placeholder;
+  }
+  
+  set value(newValue) {
+    set(this.args.model, this.args.valuePath, newValue);
+    return newValue;
+  }
+
   constructor() {
     super(...arguments);
-    if (!this.args.onSelect) {
-      console.warn('Dropdown 2-way binding needs an onSelect action');
-    }
     if (!this.args.options) {
       throw new Error('Dropdown requires an options array');
     }
@@ -42,9 +43,9 @@ export default class DropdownComponent extends Component {
 
   saveSelection(value) {
     if (!this.args.preventDefault) {
-      this._selectedOption = value;
+      this.value = value;
     }
-    this.args.onSelect(value);
+    this.args.onSelect?.(value);
   }
 
   @action
@@ -71,12 +72,11 @@ export default class DropdownComponent extends Component {
 
   @action
   makeSelection(option) {
-    if (option === this.selectedOption) {
-      this.isOpen = false;
+    if (option === this.value) {
     } else {
       this.saveSelection(option);
-      this.isOpen = false;
     }
+    this.isOpen = false;
   }
 
   @action

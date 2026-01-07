@@ -1,0 +1,13 @@
+<div class="date-picker-wrapper {{@class}}">
+  <div class="label">
+    {{this.args.label}}
+  </div>
+  <input
+    class="date-picker"
+    type="date"
+    id="start"
+    name="trip-start"
+    value={{this.value}}
+    {{on "input" this.onChange}} 
+  />
+</div>

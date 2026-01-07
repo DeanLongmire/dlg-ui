@@ -17,8 +17,9 @@
   height: fit-content;
 }
 
-.radio-label {
+.label {
   font-weight: bold;
+  margin-bottom: 0.25em;
 }
 
 .radio-options {

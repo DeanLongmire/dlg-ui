@@ -2,6 +2,10 @@ body {
   margin: 0px;
 }
 
+.custom-form {
+  width: 40%;
+}
+
 .custom-dropdown.dropdown-wrapper {
   width: 40%;
 }

@@ -1,7 +1,10 @@
 <div class='dropdown-wrapper {{@class}}' {{did-insert this.loadClickListener}}>
+  <div class='label'>
+    {{this.args.label}}
+  </div>
   <div class='dropdown-select {{if this.isOpen "open"}}'>
-    {{#if this.selectedOption}}
-      {{this.selectedOption.label}}
+    {{#if this.value.label}}
+      {{this.value.label}}
       {{! TODO - If there is no label, then they submitted just strings and we can use those for a dropdown }}
     {{else}}
       <span class='dropdown-placeholder'>
@@ -10,7 +13,7 @@
     {{/if}}
   </div>
   <div class={{this.dropdownClass}}>
-    {{#each @options as |option|}}
+    {{#each this.options as |option|}}
       <div
         class='dropdown-option'
         {{on 'click' (fn this.makeSelection option)}}

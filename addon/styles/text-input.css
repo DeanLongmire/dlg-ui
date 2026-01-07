@@ -1,0 +1,21 @@
+.text-input {
+    min-height: 2.375em;
+    width: 100%;
+    border: 2px solid;
+    border-color: inherit;
+    padding: 8px 20px 8px 8px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    background-color: #eee;
+}
+
+.text-input:focus-visible {
+    border-radius: 0 !important;
+    outline: none;
+}
+
+.text-input-wrapper {
+    border-color: inherit;
+}

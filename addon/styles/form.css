@@ -1,0 +1,34 @@
+.field-border {
+    border: 2px solid transparent;
+}
+
+.has-error > .field-border {
+    border: red solid 2px;
+}
+
+.field-validation {
+    position: absolute;
+    color: red;
+    font-style: italic;
+}
+
+.field-input {
+  box-sizing: border-box;
+  margin-bottom: 0.25em;
+}
+
+.form-field {
+    margin-bottom: 2.25em;
+}
+
+.form-wrapper {
+    margin-bottom: 2em;
+}
+
+.has-error {
+    border-color: red;
+}
+
+.required {
+    color: red;
+}
