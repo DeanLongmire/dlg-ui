@@ -12,7 +12,6 @@
   height: fit-content;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   z-index: 10;
   padding: 0 1em;
 }
@@ -73,6 +72,8 @@
   width: fit-content;
   white-space: nowrap;
   font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
 .navbar-wrapper {
