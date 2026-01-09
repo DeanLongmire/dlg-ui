@@ -10,16 +10,20 @@ export default class ModalComponent extends Component {
         return faCircleXmark;
     }
 
-    acceptAndClose = () => {
-        if (this.args.onAccept) {
-            this.args.onAccept();
-        }
-        this.toggleModal();
+    get primaryButtonText() {
+        return this.args.primaryButtonText || 'Done';
+    }
+    
+    get secondaryButtonText() {
+        return this.args.secondaryButtonText || 'Cancel';
     }
 
+    acceptAndClose = () => {
+        this.args.onAccept?.();
+        this.toggleModal();
+    }
+    
     toggleModal = () => {
-        if (this.args.toggleModal) {
-            this.args.toggleModal();
-        }
+        this.args.toggleModal?.();
     }
 }

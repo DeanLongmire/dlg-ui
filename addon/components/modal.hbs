@@ -8,12 +8,16 @@
             {{yield to="body"}}
         </div>
         <div class="modal-footer">
-            <ButtonPrimary @onClick={{this.toggleModal}}>
-                Cancel
-            </ButtonPrimary>
-            <ButtonPrimary @onClick={{this.acceptAndClose}} style="margin-left: 1em;">
-                Done
-            </ButtonPrimary>
+            {{#unless this.hideSecondaryButton}}
+                <ButtonPrimary @onClick={{this.toggleModal}}>
+                    {{this.secondaryButtonText}}
+                </ButtonPrimary>
+            {{/unless}}
+            {{#unless this.hidePrimaryButton}}
+                <ButtonPrimary @onClick={{this.acceptAndClose}} style="margin-left: 1em;">
+                    {{this.primaryButtonText}}
+                </ButtonPrimary>
+            {{/unless}}
             {{yield to="footer"}}
         </div>
     </div>

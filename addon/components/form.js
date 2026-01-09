@@ -10,6 +10,10 @@ export default class FormComponent extends Component {
         return this.validations.didValidate;
     }
 
+    get submitButtonText() {
+        return this.args.submitButtonText || 'Submit';
+    }
+
     addValidator = (validator) => {
         this.validations.addValidation(validator);
     }

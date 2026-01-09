@@ -1,7 +1,9 @@
 <div class="radio-container {{@class}}">
-    <div class="label">
-        {{this.args.label}}
-    </div>
+    {{#if this.args.label}}
+      <div class="label">
+          {{this.args.label}}
+      </div>
+    {{/if}}
     <div class="radio-options">
         {{#each this.options as |option|}}
             <div class="radio-option">
