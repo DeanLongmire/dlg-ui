@@ -20,7 +20,7 @@ export default class RadioComponent extends Component {
   }
 
   onChange = (option) => {
-    this.value = option;
+    this.value = option.value;
     this.args.onChange?.(option);
   }
 }

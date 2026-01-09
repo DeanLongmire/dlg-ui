@@ -3,8 +3,8 @@
     {{this.args.label}}
   </div>
   <div class='dropdown-select {{if this.isOpen "open"}}'>
-    {{#if this.value.label}}
-      {{this.value.label}}
+    {{#if this.displayValue}}
+      {{this.displayValue}}
       {{! TODO - If there is no label, then they submitted just strings and we can use those for a dropdown }}
     {{else}}
       <span class='dropdown-placeholder'>

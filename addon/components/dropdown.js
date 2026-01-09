@@ -4,6 +4,7 @@ import { tracked } from '@glimmer/tracking';
 
 export default class DropdownComponent extends Component {
   @tracked isOpen = false;
+  @tracked displayValue = null;
 
   get dropdownClass() {
     if (this.isOpen) {
@@ -47,11 +48,12 @@ export default class DropdownComponent extends Component {
     }
   }
 
-  saveSelection(value) {
+  saveSelection(option) {
     if (!this.args.preventDefault) {
-      this.value = value;
+      this.value = option?.value;
     }
-    this.args.onSelect?.(value);
+    this.displayValue = option?.label || null;
+    this.args.onSelect?.(option);
   }
 
   @action
@@ -77,7 +79,7 @@ export default class DropdownComponent extends Component {
 
   @action
   makeSelection(option) {
-    if (option === this.value) {
+    if (option.value === this.value) {
       this.saveSelection(null);
     } else {
       this.saveSelection(option);
