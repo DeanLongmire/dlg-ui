@@ -12,9 +12,9 @@ export default class IndexController extends Controller {
   @tracked checkboxGroup = { 'short option': true };
 
   options = [
-    { label: 'short option' },
-    { label: 'a medium size option' },
-    { label: 'A very very very long option that is long' },
+    { label: 'short option', value: 'shortOption'},
+    { label: 'a medium size option', value: 'mediumOption'},
+    { label: 'A very very very long option that is long', value: 'longOption'},
   ];
 
   option = { label: 'Option 1' };

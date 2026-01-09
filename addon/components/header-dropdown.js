@@ -3,11 +3,12 @@ import { action, get, set } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class DropdownComponent extends Component {
+  @tracked displayValue = null;
   @tracked isOpen = false;
 
   get displaySelectedOption() {
-    if (this.value?.label) {
-      return this.value.label;
+    if (this.displayValue) {
+      return this.displayValue;
     } else {
       return this.placeholder;
     }
@@ -41,11 +42,12 @@ export default class DropdownComponent extends Component {
     }
   }
 
-  saveSelection(value) {
+  saveSelection(option) {
     if (!this.args.preventDefault) {
-      this.value = value;
+      this.value = option?.value;
     }
-    this.args.onSelect?.(value);
+    this.displayValue = option?.label || null;
+    this.args.onSelect?.(option);
   }
 
   @action
@@ -72,11 +74,13 @@ export default class DropdownComponent extends Component {
 
   @action
   makeSelection(option) {
-    if (option === this.value) {
+    if (option.value === this.value) {
+      this.saveSelection(null);
     } else {
       this.saveSelection(option);
     }
     this.isOpen = false;
+    this.args.onChange?.(this.value);
   }
 
   @action
