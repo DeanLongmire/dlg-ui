@@ -2,7 +2,9 @@
     <form>
         {{yield (hash Field=(component "form/field" addValidator=this.addValidator didValidate=this.didValidate errors=this.errors validate=this.validate))}}
     </form>
-    <ButtonPrimary @onClick={{this.submitForm}}>
-        Submit
-    </ButtonPrimary>
+    {{#unless @hideSubmit}}
+      <ButtonPrimary @onClick={{this.submitForm}}>
+          Submit
+      </ButtonPrimary>
+    {{/unless}}
 </div>

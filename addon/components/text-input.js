@@ -9,7 +9,7 @@ export default class TextInputComponent extends Component {
 
     get value() {
       const value = get(this.args.model, this.args.valuePath);
-      return value !== undefined ? value : this.placeholder;
+      return value !== undefined ? value : null;
     }
 
     set value(newValue) {
