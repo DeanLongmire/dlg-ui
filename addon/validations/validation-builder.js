@@ -13,11 +13,11 @@ export default class ValidationBuilder {
         this.validations.push(validator);
     }
 
-    validate(model) {
+    async validate(model) {
         let errors = {};
         for (let validator of this.validations) {
             const value = get(model, validator.valuePath);
-            validator.validate(value);
+            await validator.validate(value);
             if (!validator.isValid) {
                 errors[validator.valuePath] = validator.errorMessage;
             }

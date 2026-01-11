@@ -18,14 +18,19 @@ export default class FormComponent extends Component {
         this.validations.addValidation(validator);
     }
 
-    submitForm = () => {
-        this.validate();
+    submitForm = async () => {
+        let errors = await this.validate();
+        console.log(errors);
+        if (errors) {
+            return;
+        }
+
         this.args.onSubmit?.();
     }
 
-    validate = () => {
-        let res = this.validations.validate(this.args.model);
-        console.log(res);
-        this.errors = res;
+    validate = async () => {
+        let errors = await this.validations.validate(this.args.model);
+        this.errors = errors;
+        return errors;
     }
 }
