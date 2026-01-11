@@ -20,6 +20,7 @@ export default class FormComponent extends Component {
 
     submitForm = () => {
         this.validate();
+        this.args.onSubmit?.();
     }
 
     validate = () => {
