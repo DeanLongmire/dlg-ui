@@ -2,7 +2,14 @@
     <form>
         {{yield (hash Field=(component "form/field" addValidator=this.addValidator didValidate=this.didValidate errors=this.errors validate=this.validate))}}
     </form>
+    <div class="form-actions">
       <ButtonPrimary @onClick={{this.submitForm}}>
           {{this.submitButtonText}}
       </ButtonPrimary>
+      {{#if @secondaryButtonText}}
+        <ButtonPrimary @onClick={{@secondaryAction}} style="margin-left: 1em;">
+            {{@secondaryButtonText}}
+        </ButtonPrimary>
+      {{/if}}
+    </div>
 </div>

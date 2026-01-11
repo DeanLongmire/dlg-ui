@@ -17,6 +17,11 @@
   margin-bottom: 0.25em;
 }
 
+.form-actions {
+    margin-top: 2em;
+    display: flex;
+}
+
 .form-field {
     margin-bottom: 1.50em;
 }

@@ -68,7 +68,7 @@
 
 <br />
 
-<Form @class="custom-form" @model={{this}} as |form|>
+<Form @class="custom-form" @model={{this}} @secondaryButtonText="Cancel" as |form|>
   <form.Field @label='Form Radio' @required={{true}} @valuePath="radioValue" as |field|>
     <field.Radio 
       @options={{this.options}}
