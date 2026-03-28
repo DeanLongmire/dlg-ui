@@ -7,20 +7,20 @@ module('Integration | Component | date-picker', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    let model = {
+      date: true,
+    };
 
-    await render(hbs`<DatePicker />`);
+    this.set('model', model);
 
-    assert.dom().hasText('');
-
-    // Template block usage:
     await render(hbs`
-      <DatePicker>
-        template block text
-      </DatePicker>
+      <DatePicker 
+        @model={{this.model}}
+        @valuePath="date"
+        @label="Date"
+      />
     `);
 
-    assert.dom().hasText('template block text');
+    assert.dom().hasText('Date');
   });
 });

@@ -7,20 +7,23 @@ module('Integration | Component | checkbox', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    let option = { label: 'option 1', value: 1 };
 
-    await render(hbs`<Checkbox />`);
+    let model = {
+      checkbox: true,
+    };
 
-    assert.dom().hasText('');
+    this.set('option', option);
+    this.set('model', model);
 
-    // Template block usage:
-    await render(hbs`
-      <Checkbox>
-        template block text
-      </Checkbox>
-    `);
+    await render(hbs`<Checkbox 
+                      @model={{this.model}}
+                      @valuePath="checkbox"
+                      @option={{this.option}}
+                     />`);
 
-    assert.dom().hasText('template block text');
+    assert.dom('label').exists({ count: 1 });
+    assert.dom(this.element).includesText('option 1');
+    assert.equal(model.checkbox, true);
   });
 });

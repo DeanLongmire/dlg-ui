@@ -8,8 +8,14 @@ module('Integration | Modifier | did-insert', function (hooks) {
 
   // Replace this with your real tests.
   test('it renders', async function (assert) {
-    await render(hbs`<div {{did-insert}}></div>`);
+    let model = {
+      func: () => {
+        assert.ok(true);
+      },
+    };
 
-    assert.ok(true);
+    this.set('model', model);
+
+    await render(hbs`<div {{did-insert this.model.func}}></div>`);
   });
 });

@@ -1,26 +1,22 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { pauseTest, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | player/card', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`<Player::Card />`);
-
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
     await render(hbs`
-      <Player::Card>
-        template block text
-      </Player::Card>
+      <Player::Card
+        @player="Player Name"
+        @trophyCount={{5}}
+        @points=100
+        @position="QB"
+        @picture={{this.picture}}
+      />
     `);
 
-    assert.dom(this.element).hasText('template block text');
+    assert.dom(this.element).hasText('QB Player Name 100 pts');
   });
 });

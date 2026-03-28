@@ -7,20 +7,34 @@ module('Integration | Component | checkbox-group', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    let options = [
+      { label: 'option 1', value: 1 },
+      { label: 'option 2', value: 2 },
+      { label: 'option 3', value: 3 },
+    ];
 
-    await render(hbs`<CheckboxGroup />`);
+    let model = {
+      checkboxGroup: { 'short option': true },
+    };
 
-    assert.dom().hasText('');
+    this.set('options', options);
+    this.set('model', model);
 
-    // Template block usage:
-    await render(hbs`
-      <CheckboxGroup>
-        template block text
-      </CheckboxGroup>
-    `);
+    await render(hbs`<CheckboxGroup
+                      @options={{this.options}}
+                      @model={{this.model}}
+                      @valuePath="checkboxGroup"
+                     />`);
 
-    assert.dom().hasText('template block text');
+    assert.dom('label').exists({ count: 3 });
+    assert.dom(this.element).includesText('option 1');
+    assert.dom(this.element).includesText('option 2');
+    assert.dom(this.element).includesText('option 3');
+    assert.deepEqual(model.checkboxGroup, {
+      'short option': true,
+      'option 1': false,
+      'option 2': false,
+      'option 3': false,
+    });
   });
 });
