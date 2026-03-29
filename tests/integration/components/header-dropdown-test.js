@@ -7,20 +7,30 @@ module('Integration | Component | header-dropdown', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    let options = [
+      { label: 'option 1', value: 1 },
+      { label: 'option 2', value: 2 },
+      { label: 'option 3', value: 3 },
+    ];
 
-    await render(hbs`<HeaderDropdown />`);
+    let model = {
+      dropdownValue: true,
+    };
 
-    assert.dom(this.element).hasText('');
+    this.set('model', model);
+    this.set('options', options);
 
-    // Template block usage:
     await render(hbs`
-      <HeaderDropdown>
-        template block text
-      </HeaderDropdown>
+      <HeaderDropdown
+        @class='custom-dropdown'
+        @options={{this.options}}
+        @model={{this.model}}
+        @valuePath="dropdownValue"
+      />
     `);
 
-    assert.dom(this.element).hasText('template block text');
+    assert
+      .dom(this.element)
+      .hasText('Select an option... option 1 option 2 option 3');
   });
 });

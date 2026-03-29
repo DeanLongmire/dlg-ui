@@ -13,7 +13,7 @@ export default class RadioComponent extends Component {
     const value = get(this.args.model, this.args.valuePath);
     return value !== undefined ? value : this.placeholder;
   }
-  
+
   set value(newValue) {
     set(this.args.model, this.args.valuePath, newValue);
     return newValue;
@@ -22,5 +22,5 @@ export default class RadioComponent extends Component {
   onChange = (option) => {
     this.value = option.value;
     this.args.onChange?.(option);
-  }
+  };
 }

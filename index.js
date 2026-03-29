@@ -7,7 +7,7 @@ const Funnel = require('broccoli-funnel');
 module.exports = {
   name: require('./package').name,
 
-  included(app) {
+  included() {
     this._super.included.apply(this, arguments);
 
     // Concatenate all CSS files into addon.css at build time

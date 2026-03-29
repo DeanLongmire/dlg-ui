@@ -7,20 +7,56 @@ module('Integration | Component | navbar', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    let navbarOptions = [
+      {
+        label: 'Login',
+        route: 'login',
+        type: 'link',
+        index: 0,
+      },
+      {
+        label: 'More',
+        route: 'more',
+        type: 'link',
+        index: 2,
+      },
+      {
+        label: 'Settings',
+        route: 'settings',
+        type: 'dropdown',
+        index: 1,
+        placeholder: 'Settings',
+        preventDefault: true,
+        dropdownOptions: [
+          {
+            label: 'Profile',
+            route: 'settings.profile',
+            index: 0,
+          },
+          {
+            label: 'Account',
+            route: 'accounts.account',
+            index: 1,
+            param: '1234',
+          },
+          {
+            label: 'Billing',
+            route: 'billing',
+            index: 2,
+          },
+        ],
+      },
+    ];
 
-    await render(hbs`<Navbar />`);
+    this.set('navbarOptions', navbarOptions);
+    this.set('title', 'My Navbar');
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
     await render(hbs`
-      <Navbar>
-        template block text
-      </Navbar>
+      <Navbar @options={{this.navbarOptions}} @title={{this.title}}></Navbar>
     `);
 
-    assert.dom(this.element).hasText('template block text');
+    assert
+      .dom(this.element)
+      .hasText('My Navbar More Settings Profile Account Billing Login');
   });
 });

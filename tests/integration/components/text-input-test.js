@@ -7,20 +7,20 @@ module('Integration | Component | text-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    let model = {
+      name: null,
+    };
 
-    await render(hbs`<TextInput />`);
+    this.set('model', model);
 
-    assert.dom().hasText('');
-
-    // Template block usage:
     await render(hbs`
-      <TextInput>
-        template block text
-      </TextInput>
+      <TextInput
+        @placeholder='Enter text here...'
+        @model={{this.model}}
+        @valuePath="name"
+      />
     `);
 
-    assert.dom().hasText('template block text');
+    assert.dom().hasText('');
   });
 });

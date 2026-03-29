@@ -23,7 +23,7 @@
 .dropdown-options {
   white-space: normal;
   max-height: 0;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
   border-style: solid;
   border-top-style: none;
   border-bottom-style: none;
@@ -97,7 +97,7 @@
 
 .header-dropdown-options {
   white-space: normal;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
   border-style: solid;
   border-top-style: none;
   border-bottom-style: none;

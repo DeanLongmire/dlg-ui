@@ -14,8 +14,8 @@ export default class MoreController extends Controller {
   get icon() {
     return faFootball;
   }
-  
-    @action
+
+  @action
   onSelect(value) {
     this.selectedOption = value;
   }

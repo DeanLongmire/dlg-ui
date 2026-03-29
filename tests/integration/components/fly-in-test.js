@@ -7,20 +7,14 @@ module('Integration | Component | fly-in', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`<FlyIn />`);
-
-    assert.dom().hasText('');
-
-    // Template block usage:
     await render(hbs`
-      <FlyIn>
-        template block text
+      <FlyIn @icon={{this.icon}} @yPercentage="20%" @title="Most Yards" @titleOffset="12%">
+        <:dropdown>
+          1st P. Name 2nd P. Name 3rd P. Name
+        </:dropdown>
       </FlyIn>
     `);
 
-    assert.dom().hasText('template block text');
+    assert.dom().hasText('Most Yards 1st P. Name 2nd P. Name 3rd P. Name');
   });
 });

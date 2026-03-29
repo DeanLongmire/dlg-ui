@@ -7,20 +7,29 @@ module('Integration | Component | radio', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    let options = [
+      { label: 'option 1', value: 1 },
+      { label: 'option 2', value: 2 },
+      { label: 'option 3', value: 3 },
+    ];
 
-    await render(hbs`<Radio />`);
+    let model = {
+      radioValue: 1,
+    };
 
-    assert.dom(this.element).hasText('');
+    this.set('options', options);
+    this.set('model', model);
 
-    // Template block usage:
     await render(hbs`
-      <Radio>
-        template block text
-      </Radio>
+      <Radio
+        @options={{this.options}}
+        @name='radio'
+        @label='Radio'
+        @model={{this}}
+        @valuePath="radioValue"
+      />
     `);
 
-    assert.dom(this.element).hasText('template block text');
+    assert.dom(this.element).hasText('Radio option 1 option 2 option 3');
   });
 });
