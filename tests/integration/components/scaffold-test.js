@@ -48,17 +48,20 @@ module('Integration | Component | scaffold', function (hooks) {
       },
     ];
 
+    let footerTag = '@DLG-UI';
+
     this.set('navbarOptions', navbarOptions);
     this.set('title', 'My Navbar');
+    this.set('footerTag', footerTag);
 
     await render(hbs`
-      <Scaffold @options={{this.navbarOptions}} @title={{this.title}}>
+      <Scaffold @options={{this.navbarOptions}} @title={{this.title}} @footerTag={{this.footerTag}}>
         template block text
       </Scaffold>
     `);
 
     assert
       .dom()
-      .hasText('My Navbar More Settings Profile Account Billing Login Footer');
+      .hasText('My Navbar More Settings Profile Account Billing Login @DLG-UI');
   });
 });
