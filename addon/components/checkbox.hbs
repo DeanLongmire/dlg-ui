@@ -8,7 +8,7 @@
         type='checkbox'
         id='checkboxId'
         checked={{this.value}}
-        {{on 'change' (fn this.onChange)}}
+        {{on 'change' this.onChange}}
       />
       <label for='checkboxId'>{{@option.label}}</label>
     </div>

@@ -24,6 +24,6 @@ module('Integration | Component | checkbox', function (hooks) {
 
     assert.dom('label').exists({ count: 1 });
     assert.dom(this.element).includesText('option 1');
-    assert.equal(model.checkbox, true);
+    assert.true(model.checkbox);
   });
 });

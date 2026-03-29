@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
-import { pauseTest, render } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | player/card', function (hooks) {
@@ -11,7 +11,7 @@ module('Integration | Component | player/card', function (hooks) {
       <Player::Card
         @player="Player Name"
         @trophyCount={{5}}
-        @points=100
+        @points={{100}}
         @position="QB"
         @picture={{this.picture}}
       />

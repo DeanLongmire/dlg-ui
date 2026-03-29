@@ -22,14 +22,14 @@
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
     "test": "npm-run-all --print-name \"lint\" \"test:*\"",
-    "test:ember": "ember test",
-    "test:ember-compatibility": "ember try:each"
+    "test:ember": "ember test"
   },
   "dependencies": {
     "@ember/string": "^3.1.1",
     "@fortawesome/ember-fontawesome": "^3.1.0",
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "broccoli-funnel": "^3.0.8",
     "ember-auto-import": "^2.4.3",
     "ember-cli-babel": "^8.2.0",
     "ember-cli-htmlbars": "^6.3.0"
@@ -45,7 +45,6 @@
     "@glimmer/component": "^1.1.2",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
-    "broccoli-funnel": "^3.0.8",
     "broccoli-merge-trees": "^4.2.0",
     "ember-cli": "~4.12.0",
     "ember-cli-dependency-checker": "^3.3.1",
@@ -58,7 +57,6 @@
     "ember-qunit": "^6.0.0",
     "ember-resolver": "^10.0.0",
     "ember-source": "~5.4.0",
-    "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^4.16.1",
     "ember-truth-helpers": "^4.0.3",
     "eslint": "^7.32.0",

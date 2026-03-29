@@ -1,23 +1,23 @@
-<div class="radio-container {{@class}}">
-    {{#if this.args.label}}
-      <div class="label">
-          {{this.args.label}}
-      </div>
-    {{/if}}
-    <div class="radio-options">
-        {{#each this.options as |option|}}
-            <div class="radio-option">
-                <input 
-                    type="radio"
-                    id={{option.label}}
-                    checked={{eq option.label this.value.label}}
-                    name={{this.args.name}}
-                    {{on "change" (fn this.onChange option)}}
-                />
-                <label for={{option.label}}>
-                    {{option.label}}
-                </label>
-            </div>
-        {{/each}}
+<div class='radio-container {{@class}}'>
+  {{#if @label}}
+    <div class='label'>
+      {{@label}}
     </div>
+  {{/if}}
+  <div class='radio-options'>
+    {{#each this.options as |option|}}
+      <div class='radio-option'>
+        <input
+          type='radio'
+          id={{option.label}}
+          checked={{eq option.label this.value.label}}
+          name={{@name}}
+          {{on 'change' (fn this.onChange option)}}
+        />
+        <label for={{option.label}}>
+          {{option.label}}
+        </label>
+      </div>
+    {{/each}}
+  </div>
 </div>

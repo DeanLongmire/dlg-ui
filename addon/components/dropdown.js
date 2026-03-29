@@ -35,7 +35,7 @@ export default class DropdownComponent extends Component {
     const value = get(this.args.model, this.args.valuePath);
     return value !== undefined ? value : this.placeholder;
   }
-  
+
   set value(newValue) {
     set(this.args.model, this.args.valuePath, newValue);
     return newValue;

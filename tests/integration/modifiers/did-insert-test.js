@@ -8,6 +8,8 @@ module('Integration | Modifier | did-insert', function (hooks) {
 
   // Replace this with your real tests.
   test('it renders', async function (assert) {
+    assert.expect(1);
+
     let model = {
       func: () => {
         assert.ok(true);
