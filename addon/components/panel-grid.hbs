@@ -1,0 +1,9 @@
+<div class='panel-grid'>
+  {{#each this.panels as |panel|}}
+    <Panel
+      @title={{panel.title}}
+      @icon={{panel.icon}}
+      @onClick={{panel.onClick}}
+    />
+  {{/each}}
+</div>

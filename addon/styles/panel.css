@@ -1,0 +1,25 @@
+.panel {
+  border: 2.5px solid #000;
+  cursor: pointer;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.panel:hover {
+  transform: scale(1.03);
+}
+
+.panel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
+  gap: 1rem;
+}
+
+.panel-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
