@@ -17,4 +17,5 @@ Router.map(function () {
     this.route('settings');
   });
   this.route('more');
+  this.route('form');
 });

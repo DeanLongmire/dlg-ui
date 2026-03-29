@@ -30,3 +30,8 @@ body {
   display: flex;
   justify-content: space-around;
 }
+
+.panel-wrapper {
+  border: solid 1px #ccc;
+  width: 40%;
+}

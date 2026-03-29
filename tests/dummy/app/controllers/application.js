@@ -3,8 +3,8 @@ import Controller from '@ember/controller';
 export default class ApplicationController extends Controller {
   navbarOptions = [
     {
-      label: 'Login',
-      route: 'login',
+      label: 'Form',
+      route: 'form',
       type: 'link',
       index: 0,
     },
