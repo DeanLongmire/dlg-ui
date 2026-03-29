@@ -1,0 +1,10 @@
+<div class='panel' {{on 'click' this.onClick}}>
+  {{#if @icon}}
+    <div class='panel-icon'>
+      <FaIcon @icon={{@icon}} />
+    </div>
+  {{/if}}
+  <div>
+    {{@title}}
+  </div>
+</div>
