@@ -74,7 +74,7 @@ export default class DropdownComponent extends Component {
 
   @action
   makeSelection(option) {
-    if (option.value === this.value) {
+    if (option.value != undefined && option.value === this.value) {
       this.saveSelection(null);
     } else {
       this.saveSelection(option);

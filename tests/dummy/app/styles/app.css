@@ -25,3 +25,8 @@ body {
 .custom-dropdown .header-dropdown-select {
   font-size: 1rem;
 }
+
+.footer-links {
+  display: flex;
+  justify-content: space-around;
+}
