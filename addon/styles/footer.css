@@ -1,0 +1,14 @@
+.page-footer {
+  background-color: #eee;
+  padding: 1em;
+}
+
+.page-footer-yield {
+  margin-bottom: 1em;
+}
+
+.page-footer-static {
+  font-size: 12px;
+  display: flex;
+  justify-content: end;
+}

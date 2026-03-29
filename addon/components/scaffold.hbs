@@ -1,0 +1,15 @@
+<div class='navbar-wrapper'>
+  <Navbar @options={{@options}} @title={{@title}} />
+  <div class='navbar-yield'>
+    <div class='navbar-body'>
+      {{yield to='body'}}
+    </div>
+  </div>
+  {{#if (has-block 'footer')}}
+    <Footer @footerTag={{@footerTag}}>
+      {{yield to='footer'}}
+    </Footer>
+  {{else}}
+    <Footer @footerTag={{@footerTag}} />
+  {{/if}}
+</div>

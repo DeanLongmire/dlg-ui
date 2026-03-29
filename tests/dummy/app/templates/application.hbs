@@ -1,5 +1,18 @@
 {{page-title 'DLG-UI'}}
 
-<Navbar @options={{this.navbarOptions}} @title={{this.title}}>
-  {{outlet}}
-</Navbar>
+<Scaffold
+  @options={{this.navbarOptions}}
+  @title={{this.title}}
+  @footerTag={{this.footerTag}}
+>
+  <:body>
+    {{outlet}}
+  </:body>
+  <:footer>
+    <div class='footer-links'>
+      <span>Link 1</span>
+      <span>Link 2</span>
+      <span>Link 3</span>
+    </div>
+  </:footer>
+</Scaffold>

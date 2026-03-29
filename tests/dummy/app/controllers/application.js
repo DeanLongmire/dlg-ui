@@ -28,7 +28,7 @@ export default class ApplicationController extends Controller {
           index: 0,
         },
         {
-          label: 'Accountaaaaaaaaa',
+          label: 'Account',
           route: 'accounts.account',
           index: 1,
           param: '1234',
@@ -43,4 +43,8 @@ export default class ApplicationController extends Controller {
   ];
 
   title = 'DLG-UI';
+
+  get footerTag() {
+    return '@DLG-UI';
+  }
 }
