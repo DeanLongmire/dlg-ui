@@ -1,6 +1,6 @@
 {
   "name": "dlg-ui",
-  "version": "1.0.37",
+  "version": "1.0.38",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
     "ember-addon"
