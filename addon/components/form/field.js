@@ -3,7 +3,11 @@ import PresenceValidator from '../../validations/presence';
 
 export default class FormFieldComponent extends Component {
   get error() {
-    return this.args.errors?.[this.args.valuePath] || null;
+    let value = this.args.value;
+    const hasError = this.args.validateOne?.(this.args.valuePath, value);
+    let errors = this.args.errors;
+    errors = { ...errors, [this.args.valuePath]: hasError };
+    return this.didValidate ? errors[this.args.valuePath] || null : null;
   }
 
   get fieldType() {

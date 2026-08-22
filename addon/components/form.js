@@ -36,6 +36,14 @@ export default class FormComponent extends Component {
     this.args.onSubmit?.();
   };
 
+  validateOne = (valuePath, value) => {
+    const validator = this.validations.validations.find(
+      (v) => v.valuePath === valuePath
+    );
+    const errors = validator?.validate(value);
+    return errors;
+  };
+
   validate = async (value) => {
     let errors = await this.validations.validate(value);
     this.errors = errors;

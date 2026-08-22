@@ -12,7 +12,7 @@ export default class ValidationBuilder {
     this.validations.push(validator);
   }
 
-  async validate(value) {
+  async validate() {
     let errors = {};
     for (let validator of this.validations) {
       await validator.validate();

@@ -7,14 +7,15 @@ export default class PresenceValidator extends BaseValidator {
     this.valuePath = valuePath;
   }
 
-  validate() {
+  validate(value) {
+    const valueToValidate = value ?? this.value;
     if (
-      this.value === '' ||
-      this.value === null ||
-      this.value === undefined ||
-      (typeof this.value === 'boolean' && this.value === false) ||
-      (typeof this.value === 'object' &&
-        !Object.values(this.value).some((v) => (v ? true : false)))
+      valueToValidate === '' ||
+      valueToValidate === null ||
+      valueToValidate === undefined ||
+      (typeof valueToValidate === 'boolean' && valueToValidate === false) ||
+      (typeof valueToValidate === 'object' &&
+        !Object.values(valueToValidate).some((v) => (v ? true : false)))
     ) {
       this.errorMessage = 'This field is required';
       this.isValid = false;
