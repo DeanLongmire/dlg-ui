@@ -1,14 +1,13 @@
-<div class={{@class}} {{did-insert this.initCheckboxGroup}}>
+<div class={{@class}}>
   <div class='label'>
     {{@label}}
   </div>
   <div>
     {{#each @options as |option|}}
       <Checkbox
-        @model={{this.value}}
-        @valuePath={{option.label}}
+        @value={{this.getValue option.label}}
+        @onChange={{fn this.onChange option.label}}
         @option={{option}}
-        @onChange={{this.onChange}}
       />
     {{/each}}
   </div>

@@ -10,7 +10,7 @@
         <input
           type='radio'
           id={{option.label}}
-          checked={{eq option.label this.value.label}}
+          checked={{eq option.value this.value}}
           name={{@name}}
           {{on 'change' (fn this.onChange option)}}
         />

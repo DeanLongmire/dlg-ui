@@ -7,8 +7,8 @@ export default class IndexController extends Controller {
   @tracked name = '';
   @tracked date = '';
   @tracked dropdownValue = '';
-  @tracked radioValue;
-  @tracked checkboxValue = false;
+  @tracked radioValue = '';
+  @tracked checkboxValue = true;
   @tracked checkboxGroup = { 'short option': true };
 
   options = [
@@ -22,5 +22,18 @@ export default class IndexController extends Controller {
   @action
   toggleModal() {
     this.isModalOpen = !this.isModalOpen;
+  }
+
+  @action
+  updateField(field, value) {
+    this[field] = value;
+  }
+
+  @action
+  updateGroupField(field, key, value) {
+    this[field] = {
+      ...(this[field] ?? {}),
+      [key]: value,
+    };
   }
 }

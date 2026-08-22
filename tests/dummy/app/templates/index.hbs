@@ -2,8 +2,8 @@
   @class='custom-dropdown'
   @options={{this.options}}
   @placeholder='Select an option...'
-  @model={{this}}
-  @valuePath="dropdownValue"
+  @value={{this.dropdownValue}}
+  @onChange={{fn this.updateField 'dropdownValue'}}
 />
 
 <br />
@@ -12,7 +12,8 @@
   @class='custom-dropdown'
   @options={{this.options}}
   @model={{this}}
-  @valuePath="dropdownValue"
+  @value={{this.dropdownValue}}
+  @onChange={{fn this.updateField 'dropdownValue'}}
 />
 
 <br />
@@ -21,34 +22,31 @@
   @options={{this.options}}
   @name='radio'
   @label='Radio'
-  @model={{this}}
-  @valuePath="radioValue"
+  @value={{this.radioValue}}
+  @onChange={{fn this.updateField 'radioValue'}}
 />
 
 <br />
 
-<div style="width: 40%;">
+<div style='width: 40%;'>
   <TextInput
+    @value={{this.name}}
     @placeholder='Enter text here...'
-    @model={{this}}
-    @valuePath="name"
+    @onChange={{fn this.updateField 'name'}}
   />
 </div>
 
 <br />
 
-<div style="width: 40%;">
-  <DatePicker 
-    @model={{this}}
-    @valuePath="date"
-  />
+<div style='width: 40%;'>
+  <DatePicker @value={{this.date}} @onChange={{fn this.updateField 'date'}} />
 </div>
 
 <br />
 
-<Checkbox 
-  @model={{this}}
-  @valuePath="checkboxValue"
+<Checkbox
+  @value={{this.checkboxValue}}
+  @onChange={{fn this.updateField 'checkboxValue'}}
   @option={{this.option}}
 />
 
@@ -56,8 +54,8 @@
 
 <CheckboxGroup
   @options={{this.options}}
-  @model={{this}}
-  @valuePath="checkboxGroup"
+  @value={{this.checkboxGroup}}
+  @onChange={{fn this.updateGroupField 'checkboxGroup'}}
 />
 
 <br />
@@ -68,48 +66,78 @@
 
 <br />
 
-<Form @class="custom-form" @model={{this}} @secondaryButtonText="Cancel" as |form|>
-  <form.Field @label='Form Radio' @required={{true}} @valuePath="radioValue" as |field|>
-    <field.Radio 
+<Form @class='custom-form' @secondaryButtonText='Cancel' as |form|>
+  <form.Field
+    @label='Form Radio'
+    @required={{true}}
+    @value={{this.radioValue}}
+    @valuePath='radioValue'
+    @onChange={{fn this.updateField 'radioValue'}}
+    as |field|
+  >
+    <field.Radio
       @options={{this.options}}
       @name='radio'
-      @model={{this}}
+      {{!-- @value={{this.radioValue}} --}}
     />
   </form.Field>
 
-  <form.Field @label='Form Dropdown' @valuePath="dropdownValue" @required={{true}} as |field|>
-    <field.Dropdown 
+  <form.Field
+    @label='Form Dropdown'
+    @required={{true}}
+    @valuePath='dropdownValue'
+    @value={{this.dropdownValue}}
+    @onChange={{fn this.updateField 'dropdownValue'}}
+    as |field|
+  >
+    <field.Dropdown
       @options={{this.options}}
       @placeholder='Select an option...'
-      @model={{this}}
     />
   </form.Field>
 
-  <form.Field @label='Form Text Input' @valuePath="name" @required={{true}} as |field|>
-    <field.TextInput
-      @placeholder='Enter text here...'
-      @model={{this}}
-    />
+  <form.Field
+    @label='Form Text Input'
+    @required={{true}}
+    @valuePath='name'
+    @value={{this.name}}
+    @onChange={{fn this.updateField 'name'}}
+    as |field|
+  >
+    <field.TextInput @placeholder='Enter text here...' />
   </form.Field>
 
-  <form.Field @valuePath="date" @required={{true}} @label='Form Date Picker' as |field|>
-    <field.DatePicker 
-      @model={{this}}
-    />
+  <form.Field
+    @required={{true}}
+    @label='Form Date Picker'
+    @valuePath='date'
+    @value={{this.date}}
+    @onChange={{fn this.updateField 'date'}}
+    as |field|
+  >
+    <field.DatePicker />
   </form.Field>
 
-  <form.Field @valuePath="checkboxValue" @label='Form Checkbox' @required={{true}} as |field|>
-    <field.Checkbox 
-      @model={{this}}
-      @option={{this.option}}
-    />
+  <form.Field
+    @valuePath='checkboxValue'
+    @label='Form Checkbox'
+    @required={{true}}
+    @value={{this.checkboxValue}}
+    @onChange={{fn this.updateField 'checkboxValue'}}
+    as |field|
+  >
+    <field.Checkbox @model={{this}} @option={{this.option}} />
   </form.Field>
 
-  <form.Field @label="Form Checkbox Group" @valuePath="checkboxGroup" @required={{true}} as |field|>
-    <field.CheckboxGroup
-      @options={{this.options}}
-      @model={{this}}
-    />
+  <form.Field
+    @label='Form Checkbox Group'
+    @valuePath='checkboxGroup'
+    @value={{this.checkboxGroup}}
+    @required={{true}}
+    @onChange={{fn this.updateGroupField 'checkboxGroup'}}
+    as |field|
+  >
+    <field.CheckboxGroup @options={{this.options}} />
   </form.Field>
 </Form>
 
