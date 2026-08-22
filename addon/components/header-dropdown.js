@@ -1,10 +1,26 @@
 import Component from '@glimmer/component';
-import { action, get, set } from '@ember/object';
+import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class DropdownComponent extends Component {
-  @tracked displayValue = null;
   @tracked isOpen = false;
+
+  @tracked
+  _value = this.args.value ?? '';
+
+  get displayValue() {
+    return (
+      this.options.find((option) => option.value === this.value)?.label ?? null
+    );
+  }
+
+  get value() {
+    return this.args.value ?? '';
+  }
+
+  set value(value) {
+    this._value = value;
+  }
 
   get displaySelectedOption() {
     if (this.displayValue) {
@@ -22,17 +38,13 @@ export default class DropdownComponent extends Component {
     }
   }
 
-  get value() {
-    if (!this.args.model || !this.args.valuePath) {
-      return undefined;
-    }
-    const value = get(this.args.model, this.args.valuePath);
-    return value !== undefined ? value : this.placeholder;
-  }
-
-  set value(newValue) {
-    set(this.args.model, this.args.valuePath, newValue);
-    return newValue;
+  get options() {
+    let options = [];
+    options.push({ label: null });
+    this.args.options.forEach((option) => {
+      options.push(option);
+    });
+    return options;
   }
 
   constructor() {
@@ -46,7 +58,6 @@ export default class DropdownComponent extends Component {
     if (!this.args.preventDefault) {
       this.value = option?.value;
     }
-    this.displayValue = option?.label || null;
     this.args.onSelect?.(option);
   }
 
@@ -74,13 +85,14 @@ export default class DropdownComponent extends Component {
 
   @action
   makeSelection(option) {
-    if (option.value != undefined && option.value === this.value) {
+    if (option.value === this.value) {
       this.saveSelection(null);
+      this.args.onChange?.(undefined);
     } else {
       this.saveSelection(option);
+      this.args.onChange?.(option.value);
     }
     this.isOpen = false;
-    this.args.onChange?.(this.value);
   }
 
   @action

@@ -1,23 +1,20 @@
 import Component from '@glimmer/component';
-import { get, set } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class CheckboxComponent extends Component {
+  @tracked
+  _value = this.args.value ?? false;
+
   get value() {
-    const value = get(this.args.model, this.args.valuePath);
-    return value !== undefined ? value : this.placeholder;
+    return this.args.value ?? false;
   }
 
-  set value(newValue) {
-    set(this.args.model, this.args.valuePath, newValue);
-    return newValue;
+  set value(value) {
+    this._value = value;
   }
 
   onChange = () => {
-    if (this.value === undefined) {
-      this.value = true;
-    } else {
-      this.value = !this.value;
-    }
-    this.args.onChange?.(this.value);
+    this.args.onChange?.(!this.value, this.args.option?.label);
+    this._value = !this.value;
   };
 }

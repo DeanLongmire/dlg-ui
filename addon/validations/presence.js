@@ -1,19 +1,21 @@
 import BaseValidator from './base-validator';
 
 export default class PresenceValidator extends BaseValidator {
-  constructor(valuePath) {
+  constructor(value, valuePath) {
     super();
+    this.value = value;
     this.valuePath = valuePath;
   }
 
   validate(value) {
+    const valueToValidate = value ?? this.value;
     if (
-      value === '' ||
-      value === null ||
-      value === undefined ||
-      (typeof value === 'boolean' && value === false) ||
-      (typeof value === 'object' &&
-        !Object.values(value).some((v) => (v ? true : false)))
+      valueToValidate === '' ||
+      valueToValidate === null ||
+      valueToValidate === undefined ||
+      (typeof valueToValidate === 'boolean' && valueToValidate === false) ||
+      (typeof valueToValidate === 'object' &&
+        !Object.values(valueToValidate).some((v) => (v ? true : false)))
     ) {
       this.errorMessage = 'This field is required';
       this.isValid = false;

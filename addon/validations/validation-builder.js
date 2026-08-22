@@ -1,5 +1,4 @@
 import { tracked } from '@glimmer/tracking';
-import { get } from '@ember/object';
 
 export default class ValidationBuilder {
   @tracked validations;
@@ -13,11 +12,10 @@ export default class ValidationBuilder {
     this.validations.push(validator);
   }
 
-  async validate(model) {
+  async validate() {
     let errors = {};
     for (let validator of this.validations) {
-      const value = get(model, validator.valuePath);
-      await validator.validate(value);
+      await validator.validate();
       if (!validator.isValid) {
         errors[validator.valuePath] = validator.errorMessage;
       }

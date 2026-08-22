@@ -18,9 +18,17 @@ export default class FormComponent extends Component {
     this.validations.addValidation(validator);
   };
 
+  updateValidator = (value, valuePath) => {
+    const validator = this.validations.validations.find(
+      (v) => v.valuePath === valuePath
+    );
+    if (validator) {
+      validator.value = value;
+    }
+  };
+
   submitForm = async () => {
     let errors = await this.validate();
-    console.log(errors);
     if (errors) {
       return;
     }
@@ -28,8 +36,16 @@ export default class FormComponent extends Component {
     this.args.onSubmit?.();
   };
 
-  validate = async () => {
-    let errors = await this.validations.validate(this.args.model);
+  validateOne = (valuePath, value) => {
+    const validator = this.validations.validations.find(
+      (v) => v.valuePath === valuePath
+    );
+    const errors = validator?.validate(value);
+    return errors;
+  };
+
+  validate = async (value) => {
+    let errors = await this.validations.validate(value);
     this.errors = errors;
     return errors;
   };

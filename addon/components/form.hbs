@@ -1,15 +1,27 @@
-<div class="form-wrapper {{@class}}">
-    <form>
-        {{yield (hash Field=(component "form/field" addValidator=this.addValidator didValidate=this.didValidate errors=this.errors validate=this.validate))}}
-    </form>
-    <div class="form-actions">
-      <ButtonPrimary @onClick={{this.submitForm}}>
-          {{this.submitButtonText}}
+<div class='form-wrapper {{@class}}'>
+  <form>
+    {{yield
+      (hash
+        Field=(component
+          'form/field'
+          updateValidator=this.updateValidator
+          addValidator=this.addValidator
+          didValidate=this.didValidate
+          errors=this.errors
+          validate=this.validate
+          validateOne=this.validateOne
+        )
+      )
+    }}
+  </form>
+  <div class='form-actions'>
+    <ButtonPrimary @onClick={{this.submitForm}}>
+      {{this.submitButtonText}}
+    </ButtonPrimary>
+    {{#if @secondaryButtonText}}
+      <ButtonPrimary @onClick={{@secondaryAction}} style='margin-left: 1em;'>
+        {{@secondaryButtonText}}
       </ButtonPrimary>
-      {{#if @secondaryButtonText}}
-        <ButtonPrimary @onClick={{@secondaryAction}} style="margin-left: 1em;">
-            {{@secondaryButtonText}}
-        </ButtonPrimary>
-      {{/if}}
-    </div>
+    {{/if}}
+  </div>
 </div>

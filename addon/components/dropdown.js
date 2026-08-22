@@ -1,10 +1,27 @@
 import Component from '@glimmer/component';
-import { action, get, set } from '@ember/object';
+import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class DropdownComponent extends Component {
-  @tracked isOpen = false;
-  @tracked displayValue = null;
+  @tracked
+  isOpen = false;
+
+  @tracked
+  _value = this.args.value ?? '';
+
+  get displayValue() {
+    return (
+      this.options.find((option) => option.value === this.value)?.label ?? null
+    );
+  }
+
+  get value() {
+    return this.args.value ?? '';
+  }
+
+  set value(value) {
+    this._value = value;
+  }
 
   get dropdownClass() {
     if (this.isOpen) {
@@ -31,16 +48,6 @@ export default class DropdownComponent extends Component {
     }
   }
 
-  get value() {
-    const value = get(this.args.model, this.args.valuePath);
-    return value !== undefined ? value : this.placeholder;
-  }
-
-  set value(newValue) {
-    set(this.args.model, this.args.valuePath, newValue);
-    return newValue;
-  }
-
   constructor() {
     super(...arguments);
     if (!this.args.options) {
@@ -52,7 +59,6 @@ export default class DropdownComponent extends Component {
     if (!this.args.preventDefault) {
       this.value = option?.value;
     }
-    this.displayValue = option?.label || null;
     this.args.onSelect?.(option);
   }
 
@@ -81,10 +87,11 @@ export default class DropdownComponent extends Component {
   makeSelection(option) {
     if (option.value === this.value) {
       this.saveSelection(null);
+      this.args.onChange?.(undefined);
     } else {
       this.saveSelection(option);
+      this.args.onChange?.(option.value);
     }
     this.isOpen = false;
-    this.args.onChange?.(this.value);
   }
 }

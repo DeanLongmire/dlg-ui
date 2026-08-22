@@ -1,19 +1,20 @@
 import Component from '@glimmer/component';
-import { get, set } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class DatePickerComponent extends Component {
+  @tracked
+  _value = null;
+
   get value() {
-    const value = get(this.args.model, this.args.valuePath);
-    return value !== undefined ? value : this.placeholder;
+    return this.args.value ?? '';
   }
 
-  set value(newValue) {
-    set(this.args.model, this.args.valuePath, newValue);
-    return newValue;
+  set value(value) {
+    this._value = value;
   }
 
   onChange = (event) => {
     this.value = event.target.value;
-    this.args.onChange?.(this.value);
+    this.args.onChange?.(event.target.value);
   };
 }
